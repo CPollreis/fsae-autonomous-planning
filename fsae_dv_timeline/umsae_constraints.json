@@ -1,0 +1,172 @@
+{
+  "note": "Derived by Claude from the rules corpus, the UMSAE org chart (driverless_structure_v2.drawio), and the University of Manitoba academic/climate calendar. Durations get tuned once benchmark research lands; the dependency and window logic here is independent of it.",
+  "program": {
+    "start": "2026-06",
+    "today": "2026-09",
+    "current_month_index": 3,
+    "target": "2028-06",
+    "total_months": 24,
+    "months_remaining": 21,
+    "platform": "Existing running FSAE Electric vehicle. No EV conversion on the critical path.",
+    "target_bar": "Pass DV tech inspection + EBS test, score all three DV dynamics (Accel 75, Skidpad 75, Autocross 100) + DV Design 150 = 400 points at FSAE 2028."
+  },
+  "hard_calendar_constraints": {
+    "winnipeg_outdoor_testing_windows": {
+      "reasoning": "Winnipeg winter makes outdoor dynamic testing impossible roughly November through March: snow/ice cover on lots, cone layouts unusable, LiDAR returns degraded by snow, and sub-zero operation of pneumatics and batteries is its own problem. Dynamic testing is realistically May through October.",
+      "windows": [
+        {
+          "label": "Fall 2026",
+          "range": "2026-09 to 2026-10",
+          "usable_weeks": 8,
+          "status": "Effectively lost. Nothing is built yet. Use it for sensor bring-up on a bench and static work only."
+        },
+        {
+          "label": "Summer 2027",
+          "range": "2027-05 to 2027-10",
+          "usable_weeks": 24,
+          "status": "THE critical window. This is the only full testing season before the target. Everything must converge to make the car autonomous-capable by May 2027."
+        },
+        {
+          "label": "Spring 2028",
+          "range": "2028-04 to 2028-06",
+          "usable_weeks": 9,
+          "status": "Final validation and tuning only. Too late to discover architectural problems."
+        }
+      ],
+      "implication": "There are only 33 usable outdoor testing weeks total before June 2028, and 24 of them fall in a single window. The schedule must be built backwards from 'first autonomous motion by May 2027', not forwards from today."
+    },
+    "academic_calendar": {
+      "fall_term": "September to December, high member availability, midterm and exam dips in late Oct and Dec",
+      "winter_term": "January to April, high availability, exam dip in April",
+      "summer": "May to August, low headcount (co-ops, internships, students leaving Winnipeg) but the only good testing weather",
+      "conflict": "The best testing weather coincides with the worst member availability. Summer 2027 needs deliberate staffing: commit a core testing crew before April 2027, or the critical window is wasted.",
+      "turnover": "Expect significant member turnover each April/September. Knowledge transfer and documentation are schedule items, not nice-to-haves."
+    },
+    "indoor_winter_work": "November to March is when sim, HIL benches, static rig work, EBS bench validation, DSF documentation, and software development must happen. Plan winter as build-and-simulate, summer as test-and-tune."
+  },
+  "known_team_structure": {
+    "source": "driverless_structure_v2.drawio, as of July 2026",
+    "dso": "Caleb (Driverless System Officer, DA.4.1; also final say on architecture, safety, rules compliance, and submissions)",
+    "roles": [
+      {
+        "area": "Perception",
+        "owner": "unassigned, Caleb assisting",
+        "scope": "sensor placement/coverage, cone detection, low-level and object-level fusion, scene understanding, pipeline latency, ground truth and validation"
+      },
+      {
+        "area": "Localization + Mapping",
+        "owner": "Ced",
+        "scope": "localization concept, map representation, state estimation, filter selection, map init/convergence, loop closure, accuracy"
+      },
+      {
+        "area": "Trajectory + Planning",
+        "owner": "Angel",
+        "scope": "planning concept, path generation, vehicle model, speed profile, re-planning, validation"
+      },
+      {
+        "area": "Vehicle Control Systems",
+        "owner": "Mason",
+        "scope": "LiDAR/camera/Jetson bring-up, low-level comms (CAN/UART/SPI/ADC), VCU firmware and state machine, actuation motors, mission indicator, Docker, lateral and longitudinal control, actuator interfaces"
+      },
+      {
+        "area": "Testing",
+        "owner": "Evan",
+        "scope": "development methodology, test strategy, CI/CD, documentation practice, scenario coverage, KPI baselines, failure mode docs, risk assessment"
+      },
+      {
+        "area": "Simulation",
+        "owner": "Ethan",
+        "scope": "DAQ strategy, storage architecture, sim integration and sim-to-real, regression suites, data visualization, feedback loop"
+      },
+      {
+        "area": "Web",
+        "owner": "Geet",
+        "scope": "documentation front end"
+      },
+      {
+        "area": "Packaging",
+        "owner": "CR packaging lead",
+        "scope": "sensor locations, PCB and compute mounting, thermals"
+      }
+    ],
+    "headcount_dv": 9,
+    "gap_analysis": {
+      "critical_gap": "The org chart is heavily software-weighted. There is NO named owner for the Driverless System Brake / Emergency Brake System, and no named owner for the driverless electrical safety chain (DSMS, DSSI, shutdown circuit relays, RSS integration). These are the two hardest rules-compliance items and the ones that gate technical inspection.",
+      "consequence": "A software-only ramp produces a car that drives in simulation and fails scrutineering. EBS and the shutdown circuit are the long pole for actually scoring points.",
+      "recommendation": "Recruit or assign a dedicated EBS/mechanical actuation owner and a dedicated DV electrical safety owner before the end of Fall 2026. These roles need mechanical and electrical students, not more software members."
+    }
+  },
+  "rules_derived_dependency_chain": {
+    "explanation": "Ordered by what blocks what. Items earlier in the chain gate everything after them.",
+    "chain": [
+      {
+        "step": 1,
+        "item": "Remote Stop System procurement (Gross-Funk)",
+        "why_blocking": "Mandated specific hardware (RS.1.1). Nothing can be driven autonomously without it, and it must be in the shutdown circuit. Order early; assume long lead and possible North American variant issues."
+      },
+      {
+        "step": 2,
+        "item": "Driverless System Brake + EBS concept and design",
+        "why_blocking": "Passive mechanical energy storage only (DT.3.2.1.a), <=200 ms reaction, >10 m/s^2 average deceleration. Gates the EBS test, which gates all driverless operation (DI.1.1)."
+      },
+      {
+        "step": 3,
+        "item": "Shutdown circuit rework (DS relay, Remote Stop relay + bypass, EBS relay)",
+        "why_blocking": "DT.4. Touches the existing EV safety system, so it needs EV team buy-in and requalification of the whole car."
+      },
+      {
+        "step": 4,
+        "item": "DSMS, DSSI x3, mission indicator, alert sound",
+        "why_blocking": "DT.1. Pure tech-inspection items. Cheap and easy to defer, and teams routinely fail inspection on them."
+      },
+      {
+        "step": 5,
+        "item": "Steering actuation + decoupling",
+        "why_blocking": "DT.2.1, DT.2.2. Must preserve manual steering. Mechanical design and packaging lead time."
+      },
+      {
+        "step": 6,
+        "item": "Sensor suite + compute procurement and mounting",
+        "why_blocking": "DT.2.3 envelope constraint. LiDAR lead times are the risk."
+      },
+      {
+        "step": 7,
+        "item": "Startup checks + continuous monitoring + state machine",
+        "why_blocking": "DT.3.1.3, DO.1.1. Required before Ready state is legal. Also DSF.3 and DSF.6 documentation."
+      },
+      {
+        "step": 8,
+        "item": "Inspection mission",
+        "why_blocking": "DO.1.3. Needed for tech inspection itself: spin drivetrain, sine steering, Finished after 25-30 s. Trivial to build, easy to forget."
+      },
+      {
+        "step": 9,
+        "item": "Perception -> mapping -> planning -> control pipeline",
+        "why_blocking": "The actual autonomy. Can develop in parallel in sim from day one, but cannot be validated until 1-6 exist."
+      },
+      {
+        "step": 10,
+        "item": "Mission implementations (Accel, Skidpad, Autocross)",
+        "why_blocking": "DO.1.2.1. Acceleration and Skidpad are geometrically simple and should be built first; Autocross needs full online mapping."
+      },
+      {
+        "step": 11,
+        "item": "DSF, Notice of Intent, Vehicle Status Video, Component Summary",
+        "why_blocking": "DA.2.2. The Vehicle Status Video is the true hard deadline: it requires a demonstrably working autonomous car months before the event."
+      }
+    ]
+  },
+  "strategic_priorities": {
+    "reliability_over_speed": "150 of 250 dynamic points are Starting + Completion points and are entirely speed-independent. With Design at 150, a slow but reliable car can score roughly 300/400. Build for completing runs, not for lap time. Speed tuning is a 2028 spring activity, not a 2027 one.",
+    "event_order": "CORRECTED against practitioner evidence. Acceleration first: a straight line with a 75 m stop box, and the path can be hardcoded. Then Autocross. Skidpad LAST despite its fixed, known geometry - it is deceptively hard: 9 m minimum turning diameter, 0.125 s per-cone penalties, and DD.4.3.5.c makes a wrong lap count or sequence an outright DNF. Angus Stewart, who led Edinburgh's driverless software team 2021-2023 and won FS-AI twice, recommends Acceleration -> Autocross -> Trackdrive -> Skidpad and warns that EUFS itself took four years to complete Skidpad. His blunt framing: 'If you try and complete all the events at the same time, you probably won't do any of them.' Note Elefant Racing did hardcode both Acceleration and Skidpad paths, so Skidpad is winnable early if treated as a precision problem rather than an autonomy problem - but do not assume it is the easy second event.",
+    "inspection_first": "Design the whole first year around passing Driverless Inspection and the EBS test. A car that cannot pass inspection scores zero regardless of software quality.",
+    "trackdrive": "Not run in 2026 and not required. Ignore it until the 2028 goal is secured, then consider it for the 2030 Driverless Cup.",
+    "build_vs_custom": "Do not write custom SLAM. QUT Motorsport replaced their custom EKF-SLAM with off-the-shelf slam_toolbox and measured 93% better mapping accuracy and 87% better pose tracking for less engineering effort. Use ROS2 robot_localization for state estimation before attempting any SLAM at all; Stewart's position is that for Acceleration and Autocross you do not need SLAM or global planning."
+  },
+  "assumptions_to_confirm": [
+    "FSAE 2028 competition is mid-June 2028 at Michigan; exact dates unpublished as of Sept 2026.",
+    "Driverless Notice of Intent for the 2028 event will be due roughly autumn 2027; organizers may cap driverless entries and screen on the NoI, so an early and strong submission matters.",
+    "UMSAE has year-round indoor shop space and can access a paved lot large enough for Acceleration (75 m + 20 m) and Skidpad geometry during May-October.",
+    "The existing EV is available for driverless integration without competing with the EV team's own 2027 and 2028 competition builds. This is a scheduling conflict worth resolving explicitly."
+  ]
+}

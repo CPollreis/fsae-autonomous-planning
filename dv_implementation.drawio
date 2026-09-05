@@ -1,0 +1,635 @@
+<mxfile host="app.diagrams.net" agent="Claude Code">
+  <diagram name="Software Architecture" id="dv-sw-arch-1">
+    <mxGraphModel dx="6633" dy="4187" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sw_pipeline_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;fontColor=#ffffff;strokeColor=none;fontSize=16;fontStyle=1;" value="Software Pipeline" vertex="1">
+          <mxGeometry height="42" width="300" x="20" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="UMSAE Pipeline Draft 1 - HW Setup" vertex="1">
+          <mxGeometry height="40" width="600" x="-1750" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_imu" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="IMU&#xa;(GPS/GNSS)" vertex="1">
+          <mxGeometry height="90" width="170" x="-1750" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_steer_ang" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Steer ang." vertex="1">
+          <mxGeometry height="90" width="170" x="-1550" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_wheel_speeds" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Wheel Speeds" vertex="1">
+          <mxGeometry height="90" width="170" x="-1350" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_camera" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Camera" vertex="1">
+          <mxGeometry height="90" width="150" x="-450" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_lidar" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="LiDAR" vertex="1">
+          <mxGeometry height="90" width="150" x="-270" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_can1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" value="CAN" vertex="1">
+          <mxGeometry height="30" width="1150" x="-1750" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_can2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" value="CAN" vertex="1">
+          <mxGeometry height="30" width="1150" x="-1750" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_monoboard" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="Monoboard&#xa;State Machine" vertex="1">
+          <mxGeometry height="90" width="260" x="-1750" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_jetson" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=15;fontStyle=1;" value="Jetson" vertex="1">
+          <mxGeometry height="100" width="200" x="-390" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_mc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="MC&#xa;(Motor Controller)" vertex="1">
+          <mxGeometry height="80" width="170" x="-390" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_ebs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" value="EBS" vertex="1">
+          <mxGeometry height="80" width="150" x="-1750" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_steer_act" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Steer&#39;s&#xa;(Steering Actuator)" vertex="1">
+          <mxGeometry height="80" width="150" x="-1560" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_motor_act" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Motor&#xa;Actuator" vertex="1">
+          <mxGeometry height="80" width="150" x="-1370" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_brake_accel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Brake +&#xa;Accel" vertex="1">
+          <mxGeometry height="80" width="170" x="-1180" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_note_actuate" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacing=6;dashed=1;" value="How does this actuate?&#xa;- neg. for DV brake w/ reversed&#xa;DC motor spin (Regen)" vertex="1">
+          <mxGeometry height="130" width="300" x="-980" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_note_can_update" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacing=6;dashed=1;" value="Update: is CAN state changed&#xa;when mission is selected?" vertex="1">
+          <mxGeometry height="90" width="320" x="-1750" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_section2_title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;fontColor=#333333;" value="Selector / State Machine - Mission Selection" vertex="1">
+          <mxGeometry height="30" width="430" x="-1750" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_note_questions" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacing=6;dashed=1;" value="Are missions selected automatically?&#xa;Who sets states?&#xa;How do people implement?&#xa;Screen or analog?&#xa;Dim / contrast to mission&#xa;Select" vertex="1">
+          <mxGeometry height="210" width="380" x="-1750" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_dash_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6dcf5;strokeColor=#cbb3e8;" value="" vertex="1">
+          <mxGeometry height="300" width="280" x="-1300" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_dash_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8e6bbf;fontColor=#ffffff;strokeColor=none;fontSize=13;fontStyle=1;" value="DASH - ASM Selection" vertex="1">
+          <mxGeometry height="40" width="280" x="-1300" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="1" vertex="1">
+          <mxGeometry height="70" width="70" x="-1280" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="2" vertex="1">
+          <mxGeometry height="70" width="70" x="-1190" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="3" vertex="1">
+          <mxGeometry height="70" width="70" x="-1100" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="4" vertex="1">
+          <mxGeometry height="70" width="70" x="-1280" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="5" vertex="1">
+          <mxGeometry height="70" width="70" x="-1190" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="6" vertex="1">
+          <mxGeometry height="70" width="70" x="-1100" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="7" vertex="1">
+          <mxGeometry height="70" width="70" x="-1280" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="8" vertex="1">
+          <mxGeometry height="70" width="70" x="-1190" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_btn9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e6bbf;fontSize=14;" value="9" vertex="1">
+          <mxGeometry height="70" width="70" x="-1100" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_aux_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe4d5;strokeColor=#eec2a5;" value="" vertex="1">
+          <mxGeometry height="260" width="300" x="-950" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_aux_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c0603a;fontColor=#ffffff;strokeColor=none;fontSize=13;fontStyle=1;" value="Aux Panel" vertex="1">
+          <mxGeometry height="40" width="200" x="-950" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_tx" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="TX" vertex="1">
+          <mxGeometry height="80" width="80" x="-900" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_go_estop" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" value="GO /&#xa;E-STOP" vertex="1">
+          <mxGeometry height="80" width="80" x="-800" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_sw1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="-900" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_sw2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="-840" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_sw3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="-780" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_safety_loop_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#333333;" value="Safety Loop" vertex="1">
+          <mxGeometry height="30" width="200" x="-950" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_rss_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="RSS" vertex="1">
+          <mxGeometry height="40" width="120" x="-680" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="he1" edge="1" parent="1" source="hw_imu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.15;entryY=0;" target="hw_can1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he2" edge="1" parent="1" source="hw_steer_ang" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.4;entryY=0;" target="hw_can1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he3" edge="1" parent="1" source="hw_wheel_speeds" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.6;entryY=0;" target="hw_can1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he4" edge="1" parent="1" source="hw_wheel_speeds" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=0.2;exitY=1;entryX=0.8;entryY=0;" target="hw_monoboard" value="W.S.">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he5" edge="1" parent="1" source="hw_monoboard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=0.5;exitY=0;entryX=0.1;entryY=1;" target="hw_can1" value="state / machine msg on CAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he6" edge="1" parent="1" source="hw_camera" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=0.5;exitY=1;entryX=0.3;entryY=0;" target="hw_jetson" value="IN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he7" edge="1" parent="1" source="hw_lidar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=0.5;exitY=1;entryX=0.7;entryY=0;" target="hw_jetson" value="IN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he8" edge="1" parent="1" source="hw_jetson" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="hw_mc" value="Torque request / gov CAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he9" edge="1" parent="1" source="hw_mc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.85;entryY=0;" target="hw_can2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he10" edge="1" parent="1" source="hw_can1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.15;exitY=1;entryX=0.5;entryY=0;" target="hw_ebs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he11" edge="1" parent="1" source="hw_can2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.35;exitY=1;entryX=0.5;entryY=0;" target="hw_steer_act">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he12" edge="1" parent="1" source="hw_can2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.55;exitY=1;entryX=0.5;entryY=0;" target="hw_motor_act">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he13" edge="1" parent="1" source="hw_can2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" target="hw_brake_accel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he14" edge="1" parent="1" source="hw_dash_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#999999;dashed=1;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="hw_aux_bg" value="Safety Loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he15" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;entryX=0.5;entryY=1;" target="hw_aux_bg" value="Keys for DV Power">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-800" y="1300" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry height="190" width="380" x="760" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry height="190" width="380" x="1140" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#a9c4e8;" value="" vertex="1">
+          <mxGeometry height="380" width="740" x="20" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe4d5;strokeColor=#eec2a5;" value="" vertex="1">
+          <mxGeometry height="380" width="760" x="760" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0da;strokeColor=#c2e0ac;" value="" vertex="1">
+          <mxGeometry height="280" width="760" x="760" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6dcf5;strokeColor=#cbb3e8;" value="" vertex="1">
+          <mxGeometry height="380" width="760" x="760" y="1190" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="&lt;div&gt;camera_ws&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="760" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="lidar_ws" vertex="1">
+          <mxGeometry height="40" width="110" x="1140" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c9ce8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="MCU Interface" vertex="1">
+          <mxGeometry height="40" width="260" x="20" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c0603a;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="perception_ws" vertex="1">
+          <mxGeometry height="40" width="240" x="760" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8fbf6a;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="slam_ws" vertex="1">
+          <mxGeometry height="40" width="180" x="760" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8e6bbf;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="pnc_ws" vertex="1">
+          <mxGeometry height="40" width="160" x="760" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-13" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="Steering Angle" vertex="1">
+          <mxGeometry height="100" width="220" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-14" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="IMU" vertex="1">
+          <mxGeometry height="100" width="180" x="260" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-15" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="Wheel Speeds" vertex="1">
+          <mxGeometry height="100" width="220" x="460" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-16" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="cxh5mUTyzf0RekAEkwAo-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-17" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="Camera" vertex="1">
+          <mxGeometry height="120" width="200" x="850" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-18" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="cxh5mUTyzf0RekAEkwAo-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-19" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="LiDAR" vertex="1">
+          <mxGeometry height="120" width="200" x="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="LUCID Driver /&amp;nbsp;arena_sdk" vertex="1">
+          <mxGeometry height="70" width="280" x="810" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="rslidar_sdk" vertex="1">
+          <mxGeometry height="70" width="280" x="1190" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4472c4;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="odometry" vertex="1">
+          <mxGeometry height="70" width="220" x="240" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-23" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cxh5mUTyzf0RekAEkwAo-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4472c4;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="throttle_control" vertex="1">
+          <mxGeometry height="70" width="220" x="100" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-25" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="cxh5mUTyzf0RekAEkwAo-35">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="770" />
+              <mxPoint x="520" y="770" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4472c4;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="steer_control" vertex="1">
+          <mxGeometry height="70" width="220" x="420" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8825a;fontColor=#000000;strokeColor=none;fontSize=14;fontStyle=1;" value="sensor_fusion" vertex="1">
+          <mxGeometry height="70" width="280" x="1040" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-28" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a8db6f;fontColor=#000000;strokeColor=none;fontSize=14;fontStyle=1;" value="Initial Pose Guess" vertex="1">
+          <mxGeometry height="60" width="260" x="960" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a8db6f;fontColor=#000000;strokeColor=none;fontSize=14;fontStyle=1;" value="slam" vertex="1">
+          <mxGeometry height="60" width="220" x="1220" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a4fa8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="global_path" vertex="1">
+          <mxGeometry height="70" width="240" x="860" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a4fa8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="local_path" vertex="1">
+          <mxGeometry height="70" width="240" x="1260" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a4fa8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="mpc" vertex="1">
+          <mxGeometry height="70" width="240" x="1080" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-33" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;fontSize=14;" value="Brakes" vertex="1">
+          <mxGeometry height="110" width="160" x="20" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-34" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;fontSize=14;" value="Motor" vertex="1">
+          <mxGeometry height="110" width="160" x="240" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-35" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;fontSize=14;" value="&lt;div&gt;Steering&amp;nbsp;&lt;/div&gt;&lt;div&gt;Servo&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="160" x="440" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-36" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.3;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-37" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-38" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.7;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-39" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="750" />
+              <mxPoint x="96" y="750" />
+            </Array>
+            <mxPoint x="60.000000000000455" y="675.0000000000002" as="sourcePoint" />
+            <mxPoint x="96" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-40" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;entryX=0.3;entryY=0;exitX=0.473;exitY=0.979;exitDx=0;exitDy=0;exitPerimeter=0;" target="cxh5mUTyzf0RekAEkwAo-27" value="/color/image_raw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="942.3800000000001" y="435" />
+              <mxPoint x="1124" y="435" />
+            </Array>
+            <mxPoint x="940" y="330" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-41" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.8;entryY=0;exitDx=0;exitDy=0;" target="cxh5mUTyzf0RekAEkwAo-27" value="/rslidar_points">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1330" y="435" />
+              <mxPoint x="1264" y="435" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-42" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-29" value="/perception/cones">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-43" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" target="cxh5mUTyzf0RekAEkwAo-28" value="/odometry/steer&#xa;/odometry/imu&#xa;/odometry/wss">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-44" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;exitX=1;exitY=0.8;entryX=0;entryY=0.3;" target="cxh5mUTyzf0RekAEkwAo-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-45" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.3;exitY=0;entryX=0.5;entryY=1;" target="cxh5mUTyzf0RekAEkwAo-28" value="/slam/map/global">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-46" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;exitX=0.3;exitY=1;entryX=0.3;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-47" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.7;exitY=1;entryX=0.5;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-31" value="/slam/map/local">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-48" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.3;entryX=1;entryY=0.7;" target="cxh5mUTyzf0RekAEkwAo-29" value="/slam/state">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-49" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.7;exitY=0;entryX=0.2;entryY=1;" target="cxh5mUTyzf0RekAEkwAo-29" value="/path/finished">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-50" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.2;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-32" value="/path/global">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-51" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" target="cxh5mUTyzf0RekAEkwAo-32" value="/path/local">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-52" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=1;entryX=1;entryY=1;" value="/control/throttle">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="990" y="1540" as="sourcePoint" />
+            <mxPoint x="230" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-53" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.7;entryX=0.5;entryY=1;" value="/control/steer">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1170" y="1509.0000000000005" as="sourcePoint" />
+            <mxPoint x="620" y="730.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A2ow-pedik0Loy5NsHNl-1" edge="1" parent="1" source="cxh5mUTyzf0RekAEkwAo-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=8;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-80" y="280" />
+              <mxPoint x="-80" y="280" />
+            </Array>
+            <mxPoint x="-20" y="280" as="sourcePoint" />
+            <mxPoint x="-190" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cxh5mUTyzf0RekAEkwAo-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#222222;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="1650" width="1600" x="-30" y="-60" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#333333;" value="Actuator Power Supply Schematic" vertex="1">
+          <mxGeometry height="35" width="500" x="-1750" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_rss1_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#d68910;" value="RSS 1" vertex="1">
+          <mxGeometry height="30" width="100" x="-1300" y="1345" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_shutdown_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#d68910;" value="Shutdown Circuit" vertex="1">
+          <mxGeometry height="30" width="220" x="-1180" y="1345" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_shutdown_box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d68910;strokeWidth=2;fontSize=12;" value="Shutdown Circuit&#xa;(GLVMS / DSMS switches)" vertex="1">
+          <mxGeometry height="60" width="400" x="-1300" y="1385" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_glvms" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" value="GLVMS" vertex="1">
+          <mxGeometry height="70" width="150" x="-1750" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_dsms" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" value="DSMS" vertex="1">
+          <mxGeometry height="70" width="150" x="-1580" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_glv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="GLV" vertex="1">
+          <mxGeometry height="70" width="140" x="-1750" y="1570" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_driverless_sys" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Driverless&#xa;System" vertex="1">
+          <mxGeometry height="90" width="180" x="-1580" y="1570" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_ebs_control" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" value="EBS&#xa;Control" vertex="1">
+          <mxGeometry height="80" width="180" x="-1580" y="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_bypass_relay" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;align=center;fontSize=12;fontStyle=1;spacing=6;" value="RSS Bypass Relay" vertex="1">
+          <mxGeometry height="190" width="220" x="-1330" y="1570" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_mech_linked" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="Mechanically Linked" vertex="1">
+          <mxGeometry height="30" width="160" x="-1300" y="1650" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_dsms_relay" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;align=center;fontSize=12;fontStyle=1;spacing=6;" value="DSMS Relay" vertex="1">
+          <mxGeometry height="190" width="220" x="-1080" y="1570" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_ebs_actuator_supply" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="EBS Actuator&#xa;Supply" vertex="1">
+          <mxGeometry height="70" width="200" x="-800" y="1580" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_steering_actuator" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Steering&#xa;Actuator" vertex="1">
+          <mxGeometry height="70" width="200" x="-800" y="1670" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_rss_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdebd0;strokeColor=#d68910;fontSize=12;align=center;" value="RSS Control Box +&#xa;Vehicle Module (Figure 1)&#xa;(physical E-stop device)" vertex="1">
+          <mxGeometry height="90" width="280" x="-550" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="aps_stop_go_note" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cc0000;strokeWidth=3;align=left;verticalAlign=top;spacing=8;fontSize=13;" value="STOP: Remote Kill Switch opens&#xa;shutdown circuit&#xa;&#xa;GO: Preselected driverless&#xa;mission starts" vertex="1">
+          <mxGeometry height="140" width="480" x="-1750" y="1800" as="geometry" />
+        </mxCell>
+        <mxCell id="apse1" edge="1" parent="1" source="aps_shutdown_box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" target="aps_glvms">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse2" edge="1" parent="1" source="aps_shutdown_box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" target="aps_dsms">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse3" edge="1" parent="1" source="aps_glvms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="aps_glv">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse4" edge="1" parent="1" source="aps_dsms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=0.4;exitY=1;entryX=0.4;entryY=0;" target="aps_driverless_sys">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse5" edge="1" parent="1" source="aps_dsms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=0.6;exitY=1;entryX=0.4;entryY=0;" target="aps_ebs_control">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse6" edge="1" parent="1" source="aps_glv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.3;entryX=0;entryY=0.3;" target="aps_bypass_relay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse7" edge="1" parent="1" source="aps_driverless_sys" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="aps_bypass_relay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse8" edge="1" parent="1" source="aps_ebs_control" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.7;entryX=0;entryY=0.7;" target="aps_bypass_relay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse9" edge="1" parent="1" source="aps_bypass_relay" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="aps_dsms_relay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse10" edge="1" parent="1" source="aps_dsms_relay" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" target="aps_ebs_actuator_supply">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse11" edge="1" parent="1" source="aps_dsms_relay" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" target="aps_steering_actuator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse12" edge="1" parent="1" source="aps_rss_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1a5fa8;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;fontColor=#000000;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=1;entryY=0.3;" target="aps_shutdown_box" value="RSS 1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse13" edge="1" parent="1" source="aps_rss_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1a5fa8;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;fontColor=#000000;labelBackgroundColor=#ffffff;exitX=0.9;exitY=0;entryX=1;entryY=0.5;" target="hw_go_estop" value="physical E-STOP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse14" edge="1" parent="1" source="aps_rss_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cc0000;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=1;entryY=0.2;" target="aps_stop_go_note">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse_safety_loop" edge="1" parent="1" source="hw_aux_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#999999;dashed=1;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="aps_shutdown_box" value="Safety Loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse_key1" edge="1" parent="1" source="hw_sw1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;endArrow=block;endFill=1;strokeWidth=2;fontSize=10;exitX=0.5;exitY=1;entryX=0.3;entryY=0;" target="aps_glvms" value="key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="apse_key2" edge="1" parent="1" source="hw_sw2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;endArrow=block;endFill=1;strokeWidth=2;fontSize=10;exitX=0.5;exitY=1;entryX=0.7;entryY=0;" target="aps_dsms" value="key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iso_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;fontColor=#ffffff;strokeColor=none;fontSize=16;fontStyle=1;" value="Isometric View" vertex="1">
+          <mxGeometry height="42" width="500" x="-560" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="iso_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#999999;dashed=1;fontSize=13;align=left;verticalAlign=top;spacing=12;" value="3D rendered isometric view of the car&#xa;(placeholder &#8212; drop render here)&#xa;&#xa;Include:&#xa;&#8226; Sensors (camera, LiDAR, IMU, wheel speed, steer angle)&#xa;&#8226; Lights&#xa;&#8226; Antenna&#xa;&#8226; EBS&#xa;&#8226; DBS&#xa;&#8226; Aux Panel (DV key + Tractive System button)&#xa;&#8226; Dash&#xa;&#8226; Steering column actuation motor" vertex="1">
+          <mxGeometry height="1900" width="500" x="-560" y="10" as="geometry" />
+        </mxCell>
+      
+        <mxCell id="rm_title_1" value="Rules Breakdown by System Section&#10;(FSAE/FSG Driverless rules mapped onto the Software Pipeline / HW Setup / Actuator Power Supply / Isometric View tabs above, and onto the Mech + Electrical &quot;brain dump&quot; system categories)" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#333333;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2000" width="1750" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_hdr_2" value="MECHANICAL — DT.2.x / DT.3.x  (rules digest: mechanical_requirements)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a78d6;fontColor=#ffffff;strokeColor=none;fontSize=12;fontStyle=1;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2070" width="380" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_hdr_3" value="ELECTRICAL — DT.1.x / DT.4 / DO.2.2  (rules digest: electrical_requirements)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eb6834;fontColor=#ffffff;strokeColor=none;fontSize=12;fontStyle=1;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="2070" width="380" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_hdr_4" value="SOFTWARE — DO.1.x / DD.x  (rules digest: software_requirements)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1baf7a;fontColor=#ffffff;strokeColor=none;fontSize=12;fontStyle=1;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="2070" width="380" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_hdr_5" value="GATING &amp; INSPECTION — IN.3.x / DI.2 / DO.1.3  (rules digest: gating_inspections)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7b4fa6;fontColor=#ffffff;strokeColor=none;fontSize=12;fontStyle=1;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-520" y="2070" width="380" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_6" value="DT.3.1 — Driverless System Brake (DSB)&#10;&#10;Required. Tractive System is NOT a brake system. All parts and mountings inside Rollover Protection Envelope. Manual braking must always remain possible. May be part of the hydraulic brake system.&#10;&#10;Maps to: ABS box (mech img: EBS + DSB) · HW Setup &quot;Brake + Accel&quot; actuator · Monoboard State Machine (brake monitoring)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1a5aa8;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2130" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_7" value="DT.3.1.2 — Deactivation Points&#10;&#10;Max two. Inside the DT.2.3 volume, near the DSMS or on top of vehicle between Front Bulkhead and Front Hoop near centerline. Near each other, protected from cone strikes, marked &#x27;Brake Release&#x27;, red handle, must work with NO electrical power, max two simple push/pull/turn actions with the order shown next to them.&#10;&#10;Maps to: ABS/DSB deactivation points · Actuator Power Supply Schematic: DSMS box (release must sit near it)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1a5aa8;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2300" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_8" value="DT.3.2.1 — EBS energy storage&#10;&#10;EBS must ONLY use passive systems with mechanical energy storage. Directly supplied by GLVMS, DSMS, Remote Stop Relay and EBS Relay with no delay.&#10;&#10;Maps to: ABS/EBS · Actuator Power Supply chain: GLVMS -&gt; DSMS -&gt; EBS Control -&gt; EBS Actuator Supply" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1a5aa8;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2470" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_9" value="DT.3.2.5 — EBS performance&#10;&#10;Reaction time (SDC open to start of deceleration) &lt;= 200 ms. Average deceleration &gt; 10 m/s^2 dry. On single failure should still achieve at least half performance. Must stay in stable driving condition while decelerating.&#10;&#10;Maps to: ABS/EBS · Gating: EBS Test (DI.2, see GATING column)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1a5aa8;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2640" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_10" value="DT.2.1 — Steering actuation&#10;&#10;Manual steering must be possible with DSMS Off with no other steps. Steering actuation only possible when Ready to Drive. Steering may stay active during an Emergency Brake Maneuver while moving.&#10;&#10;Maps to: ASS box (mech img: Autonomous Steering System) · HW Setup &quot;Steer&#x27;s (Steering Actuator)&quot; · Actuator Power Supply: Steering Actuator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1a5aa8;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2810" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_11" value="DT.2.2 — Actuator decoupling&#10;&#10;If actuators are disconnected for Manual Mode: no parts removed, mechanism must not block manual operation in any position, must lock securely in both positions.&#10;&#10;Maps to: ASS box: &quot;Steering column integration w/ motor&quot; · Steering Actuator block" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1a5aa8;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="2980" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_12" value="DT.2.3 — Sensor and electronics mounting&#10;&#10;All DV components including sensors and cameras must sit inside the volume formed by the outside surfaces of chassis and tires, or in the permitted Aerodynamic Device locations (T.7.5-T.7.7).&#10;&#10;Maps to: ASM box (mech img: Autonomous Sensor Mounting) · Isometric View tab sensor list · HW Setup sensor inputs (IMU, steer ang, wheel speeds, camera, LiDAR)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1a5aa8;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="3150" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_13" value="DT.1.1 — Driverless System Master Switch (DSMS)&#10;&#10;Meets T.9.3 config/location. Direct acting, not through relay or logic. Centered in a fully blue circular area &gt;50 mm diameter, labeled &#x27;DS&#x27;, lockout/tagout capable in OFF. When OFF: no steering/braking/propulsion actuation, car pushable, car drivable in Manual Mode. Sensors and processing may still run.&#10;&#10;Maps to: Electrical img: &quot;Controls &amp; Indicators&quot; - DSMS · Actuator Power Supply Schematic: DSMS box" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="2130" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_14" value="DT.1.2 — Tractive System Activation Button&#10;&#10;Located near the Tractive System Master Switch. Puts car in TS Active from outside the vehicle. Does nothing when DSMS is OFF.&#10;&#10;Maps to: Electrical img: &quot;Controls &amp; Indicators&quot; - TSA button (annotated &quot;need DSMS iirc&quot;) · Aux Panel (HW Setup)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="2300" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_15" value="DT.1.3 — Driverless System Status Indicators (DSSI)&#10;&#10;THREE indicators: one each side behind cockpit (160 mm below Main Hoop top to 600 mm above ground), one at rear on centerline (160 mm below Main Hoop top to 100 mm above brake light). At least one visible from any angle at 1.6 m height within 3 m radius. Black background, &gt;=15 cm^2 shining surface. Bare LEDs &lt;=20 mm apart; single LED line &gt;=150 mm long. No other function.&#10;&#10;Maps to: Electrical img: &quot;Controls &amp; Indicators&quot; - DSSI · HW Setup: new &quot;DSSI&quot; block, fed from CAN1 state message" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="2470" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_16" value="DO.1.1.3 — DSSI states&#10;&#10;Off=Off, Ready=Yellow Continuous, Driving=Yellow Flashing, Finished=Blue Continuous, Emergency=Blue Flashing.&#10;&#10;Maps to: Same as DT.1.3 — HW Setup: &quot;DSSI&quot; block (state colors are the CAN1 &quot;state&quot; signal driving it)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="2640" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_17" value="DT.1.4 — Driverless Alert Sound&#10;&#10;On Emergency status: intermittent tone 1-5 Hz at 50% duty, 80-90 dBA fast weighting within 2 m radius, for 8-10 s.&#10;&#10;Maps to: Electrical img: &quot;Controls &amp; Indicators&quot; - DV Alert Sound · HW Setup: new &quot;Driverless Alert Sound&quot; block, fed from CAN1 on Emergency status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="2810" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_18" value="DO.1.4 — Driverless Mission Indicator&#10;&#10;Shows selected mission, easily readable, on the dash or near the DSMS.&#10;&#10;Maps to: HW Setup: &quot;DASH - ASM Selection&quot; mission buttons 1-9" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="2980" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_19" value="DT.3.3 / RS — Remote Stop System (RSS)&#10;&#10;MANDATED HARDWARE: Gross-Funk GmbH control box + vehicle module, latest revision with E-Key. SIL3 (EN61508) certified, 25 mW, 12-24 V (0.26 A @ 12 V), 450 g, IP20 receiver / IP65 sender. Vehicle module has an NO relay in the shutdown circuit, opens on shutdown, signal loss, and power loss, 4 A max. CANopen at Node-ID 0x011, 500 kbps at competition, set by DIP switches. Antenna must be unobstructed. LONG-LEAD PROCUREMENT ITEM.&#10;&#10;Maps to: Electrical img: &quot;RES&quot; box (&quot;Safety loop addition w/ relay&quot;) · HW Setup: RSS label + Safety Loop · Actuator Power Supply: RSS Control Box, RSS 1, RSS Bypass Relay" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="3150" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_20" value="DT.4 — Shutdown circuit additions&#10;&#10;Three additions: (1) Driverless System Relay, normally open permissive, closes when DS checks pass. (2) Remote Stop Relay, in series with shutdown buttons, bypassed by a normally-closed relay in Manual Mode; bypass relay directly supplied by DSMS with safety-certified forcibly guided or mirrored NO contact in series with DSMS. (3) EBS Relay, fail-open, coil in parallel with the Isolation Relays.&#10;&#10;Maps to: Actuator Power Supply Schematic: Shutdown Circuit box, DSMS Relay, RSS Bypass Relay, EBS Control" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="3320" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_21" value="DO.2.2 — Wireless restrictions&#10;&#10;Between start and finish line: no wireless TO the vehicle. One-way telemetry FROM the vehicle is allowed. The Remote Stop Control Box is the only device that may command the car.&#10;&#10;Maps to: Actuator Power Supply: RSS Control Box + Vehicle Module (only device allowed to command car) · Isometric View: Antenna" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#b84f24;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="3490" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_22" value="DO.1.2.1 — Required missions&#10;&#10;Must implement at minimum: Inspection, Manual Driving, EBS Test, Acceleration, Skidpad, Autocross. Trackdrive optional for 2026, expected later.&#10;&#10;Maps to: HW Setup: &quot;DASH - ASM Selection&quot; buttons 1-9" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="2130" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_23" value="DO.1.2.2 — Mission selection&#10;&#10;Must not use an external device. Needs onboard selection (dash/rotary switch).&#10;&#10;Maps to: Same dash buttons — must be onboard, no external device" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="2300" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_24" value="DT.3.1.3 — Startup check and monitoring&#10;&#10;A Startup Check must prove the DSB builds brake pressure as expected before Ready is possible. After that, DSB and its signals must be CONTINUOUSLY monitored for failures.&#10;&#10;Maps to: Monoboard State Machine · DSB (&quot;Brake + Accel&quot; actuator)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="2470" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_25" value="DT.3.2.3 — Safe State logic&#10;&#10;Go to Safe State if EBS functionality cannot be ensured, or if one additional single point of failure would cause total loss of braking. Safe State = standstill + brakes engaged + open shutdown circuit.&#10;&#10;Maps to: Monoboard State Machine · EBS Control (Actuator Power Supply Schematic)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="2640" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_26" value="DO.1.1 — State machine&#10;&#10;Driverless System Status determined by the DO.1.1.1 flowchart: Off, Ready, Driving, Finished, Emergency.&#10;&#10;Maps to: HW Setup: &quot;Monoboard State Machine&quot; block" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="2810" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_27" value="DD.1.2.4 — No prior map&#10;&#10;No map data is given. No artificial landmarks or beacons may be placed. Track must be discovered online from cones alone.&#10;&#10;Maps to: Software Pipeline tab: slam_ws, &quot;Initial Pose Guess&quot;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="2980" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_28" value="DD.3.2.2 — Start timing&#10;&#10;Ready to Drive only via the &#x27;Go&#x27; signal from the Remote Stop Control Box, after &gt;=5 s in Ready. Run must start within 30 s of Go or it is DNF.&#10;&#10;Maps to: Actuator Power Supply: RSS Control Box &quot;GO&quot; signal · Aux Panel GO/E-STOP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="3150" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_29" value="DD.3.1.5 — Staging timing&#10;&#10;Must enter Driverless System Ready within 1 minute of staging or the team may be sent back.&#10;&#10;Maps to: Monoboard State Machine / mission-selection timing" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="3320" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_30" value="DD.2.1.3 — Unsafe Stop&#10;&#10;DQ if the car does not stop in the specified area OR does not reach Finished within 30 s of stopping.&#10;&#10;Maps to: EBS Control · DSSI Emergency state (needs DSSI block, see ELECTRICAL column)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5f5ea;strokeColor=#128f61;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="3490" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_31" value="IN.3.1-&gt;IN.3.2-&gt;EBS — Inspection sequence&#10;&#10;Technical Inspection (IN.3.1) -&gt; Driverless Inspection (IN.3.2) -&gt; Emergency Brake System Test. All three required to operate in Driverless Mode (DI.1.1).&#10;&#10;Maps to: Whole system: Software Pipeline + HW Setup + Actuator Power Supply — gates whether Driverless Mode may run at all" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6d9f2;strokeColor=#5c3a7d;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-520" y="2130" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_32" value="DI.2 — EBS Test&#10;&#10;Accelerate to 40 km/h minimum within 20 m, stop within 8.5 m from remote stop actuation. Performed after the rest of Technical Inspection. Wet conditions may be scaled by officials.&#10;&#10;Maps to: ABS/EBS · Actuator Power Supply: EBS Control / EBS Actuator Supply" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6d9f2;strokeColor=#5c3a7d;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-520" y="2300" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_33" value="DO.1.3 — Inspection Mission&#10;&#10;Car supported off ground, wheels removed. Slowly spin drivetrain, slowly sine-sweep steering, transition to Finished after 25-30 s.&#10;&#10;Maps to: Monoboard State Machine (-&gt; Finished transition) · Motor / Steering actuator (spin / sine-sweep)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6d9f2;strokeColor=#5c3a7d;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-520" y="2470" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_card_34" value="bring_to_inspection — Docs required at inspection&#10;&#10;Sensor data sheets; Documents proving sensors meet local legislation; Remote Stop remote control; Tools for driverless inspection; Copies of submitted Rules Questions and answers&#10;&#10;Maps to: Team documentation / submissions — not a physical system block" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6d9f2;strokeColor=#5c3a7d;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-520" y="2640" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_title_35" value="From Image — Design Notes&#10;(descriptive text pulled from your handwritten brain-dump photos, not from the official rules text)" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;fontColor=#333333;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="3700" width="1750" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_36" value="(from image) — EBS&#10;&quot;Most technically challenging part&quot; — annotation under EBS in the mech brain dump" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="3760" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_37" value="(from image) — DSB&#10;&quot;Likely Reuse&quot; (+/-) — annotation under DSB in the mech brain dump" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="3900" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_38" value="(from image) — ASM&#10;&quot;Physical Mounting locations&quot; and &quot;Considering all software requirements&quot; — noted under Autonomous Sensor Mounting" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="4040" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_39" value="(from image) — ASS&#10;&quot;Motor selection + Mounting&quot; and &quot;Steering column integration w/ motor&quot; — noted under Autonomous Steering System" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="4180" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_40" value="(from image) — EBS + DBS&#10;&quot;PCB for watchdog?&quot; — open question noted under Brakes/EBS+DBS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="3760" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_41" value="(from image) — DBS / Regen&#10;&quot;Regen — reg torque values to motor is how some teams do it&quot; — noted under Regen" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="3900" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_42" value="(from image) — RES (RSS)&#10;&quot;Safety loop addition w/ relay&quot; — noted under the RES/RSS box" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-1340" y="4040" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_43" value="(from image) — Sensors / LiDAR&#10;&quot;Placement affects routing&quot; and &quot;Most teams either on nose cone or below RTM light&quot; — noted under Sensors/LiDAR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="3760" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_44" value="(from image) — TSA button&#10;&quot;need DSMS iirc&quot; — blue annotation next to the TSA button under Controls &amp; Indicators" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="3900" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_fi_45" value="(from image) — Driverless Controller Integration&#10;&quot;Jetson Orin AGX 64GB (ideally)&quot;; &quot;Just mount to hit on car year 1&quot;; &quot;PCB and enclosure year 2 (for CAN and other I/O)&quot;; &quot;Camera -&gt; Automotive Ethernet&quot;; &quot;LiDAR -&gt; figure out&quot; (marked in red = unresolved)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacing=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-930" y="4040" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rm_legend_46" value="Legend: MECH (blue) = DT.2.x/DT.3.x mechanical requirements  |  ELEC (orange) = DT.1.x/DT.4/DO.2.2 electrical requirements  |  SOFTWARE (green) = DO.1.x/DD.x software requirements  |  GATING (purple) = inspection/test rules  |  yellow dashed = pulled from your handwritten images, not the rulebook.&#10;Abbreviations: ABS=Autonomous Braking System, ASM=Autonomous Sensor Mounting, ASS=Autonomous Steering System, DSMS=Driverless System Master Switch, DSSI=Driverless System Status Indicators, RSS=Remote Stop System, EBS=Emergency Brake System, DSB=Driverless System Brake." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="-1750" y="4350" width="1750" height="90" as="geometry" />
+        </mxCell>
+      
+        <mxCell id="hw_dssi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#eb6834;fontSize=13;" value="DSSI&#10;(3x Status Indicator)&#10;DT.1.3 / DO.1.1.3" vertex="1">
+          <mxGeometry height="90" width="220" x="-1250" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="hw_alert" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#eb6834;fontSize=13;" value="Driverless&#10;Alert Sound&#10;DT.1.4" vertex="1">
+          <mxGeometry height="90" width="200" x="-950" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="he16" edge="1" parent="1" source="hw_can1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=0.55;exitY=1;entryX=0.3;entryY=0;" target="hw_dssi" value="state">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="he17" edge="1" parent="1" source="hw_can1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;fontSize=11;exitX=0.65;exitY=1;entryX=0.5;entryY=0;" target="hw_alert" value="Emergency status">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FSAE Driverless Ramp Comparison</title>
+<style>
+:root{
+  color-scheme: light;
+  --surface-0:#f4f4f2; --surface-1:#fcfcfb; --surface-2:#eceae5;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#78776f;
+  --border:#dcdad3; --border-strong:#c2bfb5;
+  --mech:#2a78d6; --elec:#eb6834; --soft:#1baf7a;
+  --accent:#4a3aa7; --warn:#eda100; --good:#008300; --bad:#e34948;
+  --us:#4a3aa7;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --surface-0:#111110; --surface-1:#1a1a19; --surface-2:#252523;
+    --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#8f8e84;
+    --border:#34342f; --border-strong:#4a4a43;
+    --mech:#3987e5; --elec:#d95926; --soft:#199e70;
+    --accent:#9085e9; --warn:#c98500; --good:#008300; --bad:#e66767;
+    --us:#9085e9;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --surface-0:#111110; --surface-1:#1a1a19; --surface-2:#252523;
+  --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#8f8e84;
+  --border:#34342f; --border-strong:#4a4a43;
+  --mech:#3987e5; --elec:#d95926; --soft:#199e70;
+  --accent:#9085e9; --warn:#c98500; --good:#008300; --bad:#e66767;
+  --us:#9085e9;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface-0);color:var(--text-primary);
+  font:14px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:1440px;margin:0 auto;padding:28px 22px 80px}
+header h1{font-size:23px;margin:0 0 6px;letter-spacing:-.01em}
+header p.sub{margin:0;color:var(--text-secondary);max-width:80ch}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 6px}
+.stat{background:var(--surface-1);border:1px solid var(--border);border-radius:9px;
+  padding:10px 14px;min-width:130px}
+.stat .n{font-size:20px;font-weight:650;letter-spacing:-.02em}
+.stat .l{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 12px}
+button.tab,button.gh{background:var(--surface-1);border:1px solid var(--border);color:var(--text-secondary);
+  border-radius:7px;padding:6px 13px;font:inherit;font-size:13px;cursor:pointer}
+button.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+button.tab:hover:not([aria-selected="true"]),button.gh:hover{border-color:var(--border-strong);color:var(--text-primary)}
+.spacer{flex:1}
+.legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:6px 0 18px;
+  font-size:12px;color:var(--text-secondary)}
+.lg{display:flex;align-items:center;gap:6px}
+.sw{width:22px;height:9px;border-radius:3px;display:inline-block}
+.panelbox{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+/* ---------- gantt ---------- */
+.axis{position:relative;height:22px;margin-left:var(--lblw);border-bottom:1px solid var(--border)}
+.axis span{position:absolute;transform:translateX(-50%);font-size:11px;color:var(--text-muted);top:4px}
+.axis span.last{transform:translateX(-100%)}
+.grid{position:absolute;inset:0;pointer-events:none}
+.grid i{position:absolute;top:0;bottom:0;width:1px;background:var(--border);opacity:.65}
+.grid i.yr{opacity:1;background:var(--border-strong)}
+:root{--lblw:210px}
+.row{display:flex;align-items:stretch;border-bottom:1px solid var(--border);cursor:pointer}
+.row:last-child{border-bottom:0}
+.row:hover{background:var(--surface-2)}
+.row.us{background:color-mix(in srgb,var(--us) 9%,transparent)}
+.row.us:hover{background:color-mix(in srgb,var(--us) 15%,transparent)}
+.rlbl{width:var(--lblw);flex:none;padding:9px 12px;border-right:1px solid var(--border);min-width:0}
+.rlbl .nm{font-weight:600;font-size:12.5px;line-height:1.3;overflow-wrap:anywhere}
+.rlbl .mt{font-size:10.5px;color:var(--text-muted);margin-top:3px}
+.track{position:relative;flex:1;padding:8px 0;min-height:58px}
+.lane{position:relative;height:12px;margin:2px 0}
+.seg{position:absolute;top:0;height:12px;border-radius:4px;opacity:.92}
+.seg.m{background:var(--mech)} .seg.e{background:var(--elec)} .seg.s{background:var(--soft)}
+.pre{position:absolute;top:0;height:38px;border:1px dashed var(--border-strong);border-radius:5px;
+  opacity:.75;pointer-events:none}
+.pre::after{content:"concept / not documented";position:absolute;left:6px;top:11px;font-size:9px;
+  color:var(--text-muted);white-space:nowrap}
+.seg::after{content:attr(data-l);position:absolute;left:5px;top:0;line-height:12px;
+  font-size:9px;font-weight:700;color:#fff;letter-spacing:.03em}
+.mk{position:absolute;transform:translateX(-50%);font-size:12px;line-height:1;z-index:3}
+.mk.run{top:-2px;color:var(--text-primary)}
+.mk.comp{bottom:-3px;color:var(--accent);font-size:13px}
+.mk.unc{opacity:.5}
+.today,.target{position:absolute;top:0;bottom:0;width:2px;z-index:4}
+.today{background:var(--good)} .target{background:var(--us)}
+.today::after,.target::after{position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:var(--surface-1);padding:0 3px;border-radius:3px;
+  font-size:9.5px;font-weight:700;white-space:nowrap;letter-spacing:.03em}
+.today::after{content:"TODAY M3";color:var(--good)}
+.target::after{content:"TARGET M24";color:var(--us)}
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);
+  position:sticky;top:0;background:var(--surface-1);z-index:1}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.us td{background:color-mix(in srgb,var(--us) 9%,transparent);font-weight:600}
+.scroll{overflow-x:auto}
+/* ---------- detail ---------- */
+.detail{position:fixed;inset:0 0 0 auto;width:min(660px,94vw);background:var(--surface-1);
+  border-left:1px solid var(--border-strong);box-shadow:-14px 0 44px rgba(0,0,0,.19);
+  transform:translateX(100%);transition:transform .2s ease;overflow-y:auto;z-index:50;padding:22px 24px 60px}
+.detail.open{transform:none}
+.detail h2{margin:0 0 4px;font-size:18px;letter-spacing:-.01em}
+.detail .close{position:absolute;top:14px;right:16px}
+.grp{margin-top:18px}
+.grp h3{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);
+  margin:0 0 8px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.f{margin-bottom:11px}
+.f .k{font-size:10.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em}
+.f .v{font-size:12.5px;color:var(--text-primary);white-space:pre-wrap;overflow-wrap:anywhere}
+.f .v.unc{color:var(--text-secondary);font-style:italic}
+.pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;
+  letter-spacing:.04em;text-transform:uppercase}
+.pill.strong{background:color-mix(in srgb,var(--good) 20%,transparent);color:var(--good)}
+.pill.moderate{background:color-mix(in srgb,var(--warn) 24%,transparent);color:var(--warn)}
+.pill.weak{background:color-mix(in srgb,var(--bad) 20%,transparent);color:var(--bad)}
+.tl{border-left:2px solid var(--border-strong);padding-left:13px;margin-top:8px}
+.tl .ye{margin-bottom:13px;position:relative}
+.tl .ye::before{content:"";position:absolute;left:-18px;top:5px;width:7px;height:7px;
+  border-radius:50%;background:var(--accent)}
+.tl .yr{font-weight:700;font-size:12.5px}
+.tl .ph{font-size:11px;color:var(--text-muted);margin-bottom:3px}
+.tl .fo{font-size:11.5px;margin:2px 0;padding-left:16px;position:relative;color:var(--text-secondary)}
+.tl .fo b{position:absolute;left:0;font-weight:700}
+.tl .fo.m b{color:var(--mech)} .tl .fo.e b{color:var(--elec)} .tl .fo.s b{color:var(--soft)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:11px;padding:15px 17px;cursor:pointer}
+.card:hover{border-color:var(--border-strong)}
+.card h3{margin:0 0 6px;font-size:14px}
+.card p{margin:0;font-size:12px;color:var(--text-secondary)}
+.note{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:0 9px 9px 0;padding:12px 15px;margin:14px 0;font-size:12.5px;color:var(--text-secondary)}
+.note b{color:var(--text-primary)}
+.hide{display:none}
+a{color:var(--accent)}
+.srcs{font-size:11.5px;word-break:break-all}
+.srcs a{display:block;margin-bottom:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>FSAE Driverless — how other teams ramped, and where UMSAE fits</h1>
+  <p class="sub">Every team's programme is normalised so <b>month&nbsp;0 = the day their driverless programme started</b>, which makes ramp pace directly comparable regardless of calendar year. UMSAE's own target row is overlaid for reference.</p>
+</header>
+
+<div class="stats" id="stats"></div>
+
+<div class="bar">
+  <button class="tab" id="t-gantt" aria-selected="true" onclick="view('gantt')">Ramp timeline</button>
+  <button class="tab" id="t-table" aria-selected="false" onclick="view('table')">Table view</button>
+  <button class="tab" id="t-subs"  aria-selected="false" onclick="view('subs')">Subsystem deep dives</button>
+  <button class="tab" id="t-plan"  aria-selected="false" onclick="view('plan')">Our 24-month plan</button>
+  <button class="tab" id="t-rules" aria-selected="false" onclick="view('rules')">Rules requirements</button>
+  <span class="spacer"></span>
+  <button class="gh" onclick="toggleTheme()">Theme</button>
+</div>
+
+<section id="v-gantt">
+  <div class="legend">
+    <span class="lg"><i class="sw" style="background:var(--mech)"></i> M — Mechanical</span>
+    <span class="lg"><i class="sw" style="background:var(--elec)"></i> E — Electrical</span>
+    <span class="lg"><i class="sw" style="background:var(--soft)"></i> S — Software</span>
+    <span class="lg">◆ first autonomous run</span>
+    <span class="lg" style="color:var(--accent)">★ first DV competition</span>
+    <span class="lg" style="opacity:.55">faded marker = uncertain date</span>
+  </div>
+  <div class="panelbox">
+    <div class="axis" id="axis"></div>
+    <div id="rows"></div>
+  </div>
+  <div class="note"><b>Reading this:</b> bars show which disciplines a team was actively working in during each year of its ramp, positioned by months since programme start. Click any row for the full research record, including sources. Bars are derived from each team's year-by-year record, so a missing bar means that discipline was not documented for that year, not necessarily that no work happened.</div>
+</section>
+
+<section id="v-table" class="hide">
+  <div class="panelbox scroll"><table id="tbl"></table></div>
+  <div class="note">Same data as the timeline, in sortable-by-eye form. Values in <i>italics</i> were marked uncertain by the researcher.</div>
+</section>
+
+<section id="v-subs" class="hide"><div class="cards" id="subcards"></div></section>
+
+<section id="v-plan" class="hide"><div id="planbox"></div></section>
+<section id="v-rules" class="hide"><div id="rulesbox"></div></section>
+</div>
+
+<aside class="detail" id="detail" aria-hidden="true">
+  <button class="gh close" onclick="closeDetail()">Close</button>
+  <div id="detailbody"></div>
+</aside>
+
+<script>
+/*__DATA__*/
+
+const MAXM = 48, PX = 100/MAXM;
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const isUnc = v => /\[uncertain\]/i.test(String(v||""));
+const strip = v => String(v==null?"":v).replace(/\[uncertain\]\s*/ig,"").trim();
+const T = (window.DV&&DV.teams)||[], S=(window.DV&&DV.subs)||[];
+
+function toggleTheme(){
+  const r=document.documentElement;
+  const cur=r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  r.setAttribute("data-theme",cur==="dark"?"light":"dark");
+}
+function view(v){
+  ["gantt","table","subs","plan","rules"].forEach(k=>{
+    document.getElementById("v-"+k).classList.toggle("hide",k!==v);
+    document.getElementById("t-"+k).setAttribute("aria-selected",String(k===v));
+  });
+}
+
+/* ---- stats ---- */
+(function(){
+  const cs=T.map(d=>d._track&&d._track.comp).filter(Boolean).map(r=>r[1]);
+  const ev=T.filter(d=>/existing|convert|prior|already/i.test(strip(d.platform_prerequisites))).length;
+  const med = cs.length? cs.slice().sort((a,b)=>a-b)[Math.floor(cs.length/2)] : "—";
+  const fast = cs.length? Math.min(...cs) : "—";
+  document.getElementById("stats").innerHTML=[
+    ["Teams researched",T.length],["Median months to first DV competition",med],
+    ["Fastest documented ramp (months)",fast],["UMSAE months remaining",21],
+    ["Subsystem deep dives",S.length]
+  ].map(([l,n])=>`<div class="stat"><div class="n">${esc(n)}</div><div class="l">${esc(l)}</div></div>`).join("");
+})();
+
+/* ---- axis ---- */
+(function(){
+  const a=document.getElementById("axis"); let h='<div class="grid">';
+  for(let m=0;m<=MAXM;m+=6) h+=`<i class="${m%12===0?"yr":""}" style="left:${m*PX}%"></i>`;
+  h+="</div>";
+  for(let m=0;m<=MAXM;m+=6) h+=`<span class="${m===MAXM?"last":""}" style="left:${m*PX}%">${m}</span>`;
+  a.innerHTML=h;
+})();
+
+/* ---- rows ---- */
+function laneHTML(bands,key,cls){
+  let h=`<div class="lane">`;
+  bands.forEach(b=>{
+    if(!b["has_"+key]) return;
+    if(b.off>=MAXM) return;
+    const w=Math.min(12,MAXM-b.off);
+    h+=`<div class="seg ${cls}" style="left:${b.off*PX}%;width:calc(${w*PX}% - 2px)" data-l="${cls.toUpperCase()}" title="${esc(b.year+" · "+(b[key]||"").slice(0,240))}"></div>`;
+  });
+  return h+"</div>";
+}
+function rowHTML(d,i){
+  const t=d._track||{}, b=t.bands||[];
+  let mk="";
+  if(t.run) mk+=`<span class="mk run ${t.run_unc?"unc":""}" style="left:${Math.min(t.run[1],MAXM)*PX}%" title="First autonomous run ≈ month ${t.run[1]}">◆</span>`;
+  if(t.comp) mk+=`<span class="mk comp ${t.comp_unc?"unc":""}" style="left:${Math.min(t.comp[1],MAXM)*PX}%" title="First DV competition ≈ month ${t.comp[1]}">★</span>`;
+  const meta=[strip(d.country),t.start_year?("start "+t.start_year):"",strip(d.item_category)].filter(Boolean).join(" · ");
+  const firstOff=b.length?Math.min(...b.map(x=>x.off)):0;
+  const pre=firstOff>0?`<div class="pre" style="left:0;width:calc(${Math.min(firstOff,MAXM)*PX}% - 3px)"></div>`:"";
+  return `<div class="row" onclick="openDetail(${i})">
+    <div class="rlbl"><div class="nm">${esc(strip(d.item_name))}</div><div class="mt">${esc(meta)}</div></div>
+    <div class="track"><div class="grid">${Array.from({length:MAXM/6+1},(_,k)=>`<i class="${(k*6)%12===0?"yr":""}" style="left:${k*6*PX}%"></i>`).join("")}</div>
+      ${pre}${laneHTML(b,"m","m")}${laneHTML(b,"e","e")}${laneHTML(b,"s","s")}${mk}</div></div>`;
+}
+function umsaeRow(){
+  return `<div class="row us">
+    <div class="rlbl"><div class="nm">UMSAE Driverless — TARGET</div><div class="mt">Canada · start 2026 · our team</div></div>
+    <div class="track"><div class="grid">${Array.from({length:MAXM/6+1},(_,k)=>`<i class="${(k*6)%12===0?"yr":""}" style="left:${k*6*PX}%"></i>`).join("")}</div>
+      <div class="today" style="left:${3*PX}%"></div><div class="target" style="left:${24*PX}%"></div>
+      <div class="lane"><div class="seg m" style="left:${3*PX}%;width:calc(${13*PX}% - 2px)" data-l="M" title="M3-M16: EBS + steering actuation concept, build, bench validation, integration, summer testing"></div><div class="seg m" style="left:${22*PX}%;width:calc(${2*PX}% - 2px)" data-l="M" title="M22-M24: final validation"></div></div>
+      <div class="lane"><div class="seg e" style="left:${3*PX}%;width:calc(${13*PX}% - 2px)" data-l="E" title="M3-M16: RSS + shutdown circuit + DSMS/DSSI, build, integration, testing"></div><div class="seg e" style="left:${22*PX}%;width:calc(${2*PX}% - 2px)" data-l="E" title="M22-M24: inspection dry runs"></div></div>
+      <div class="lane"><div class="seg s" style="left:${3*PX}%;width:calc(${21*PX}% - 2px)" data-l="S" title="M3-M24: sim-first, continuous through both winters"></div></div>
+      <span class="mk run" style="left:${11*PX}%" title="Planned first autonomous motion, month 11 (May 2027) - the pivotal gate">◆</span>
+      <span class="mk comp" style="left:${24*PX}%" title="FSAE 2028, month 24">★</span>
+    </div></div>`;
+}
+document.getElementById("rows").innerHTML = umsaeRow() + T.map(rowHTML).join("");
+
+/* ---- table ---- */
+(function(){
+  const cols=[["item_name","Team"],["country","Country"],["dv_program_start","Programme start"],
+    ["months_concept_to_first_autonomous_run","→ first auto run"],
+    ["months_concept_to_first_competition","→ first DV comp"],
+    ["first_dv_competition","First DV competition"],["evidence_quality","Evidence"]];
+  let h="<thead><tr>"+cols.map(c=>`<th>${esc(c[1])}</th>`).join("")+"</tr></thead><tbody>";
+  h+=`<tr class="us"><td>UMSAE Driverless (target)</td><td>Canada</td><td>2026-06</td><td>~11 mo (May 2027)</td><td>24 mo (Jun 2028)</td><td>FSAE 2028</td><td>—</td></tr>`;
+  T.forEach((d,i)=>{
+    h+=`<tr onclick="openDetail(${i})" style="cursor:pointer">`+cols.map(c=>{
+      const raw=d[c[0]], v=strip(raw);
+      if(c[0]==="evidence_quality") return `<td><span class="pill ${esc(v.toLowerCase())}">${esc(v)}</span></td>`;
+      const cls=(c[0].startsWith("months")?"num ":"")+(isUnc(raw)?"unc":"");
+      const txt=v.length>120?v.slice(0,120)+"…":v;
+      return `<td class="${cls}">${isUnc(raw)?"<i>"+esc(txt)+"</i>":esc(txt)}</td>`;
+    }).join("")+"</tr>";
+  });
+  document.getElementById("tbl").innerHTML=h+"</tbody>";
+})();
+
+/* ---- subsystem cards ---- */
+document.getElementById("subcards").innerHTML = S.length? S.map((d,i)=>
+  `<div class="card" onclick="openSub(${i})"><h3>${esc(strip(d.item_name))}</h3>
+   <p>${esc(strip(d.summary).slice(0,230))}…</p></div>`).join("")
+  : `<div class="note">No subsystem deep dives in the results directory yet.</div>`;
+
+/* ---- rules ---- */
+(function(){
+  const R=(window.DV&&DV.rules)||{}; if(!R.scoring_model_2026){document.getElementById("rulesbox").innerHTML="";return;}
+  const sec=(t,arr)=>`<div class="grp"><h3>${esc(t)}</h3>`+arr.map(r=>
+    `<div class="f"><div class="k">${esc(r.id)} — ${esc(r.name)}</div><div class="v">${esc(r.detail)}</div></div>`).join("")+"</div>";
+  document.getElementById("rulesbox").innerHTML=
+    `<div class="panelbox" style="padding:20px 24px">
+     <div class="note"><b>Scoring insight.</b> ${esc(R.scoring_model_2026.strategic_insight||"")}</div>
+     ${sec("Mechanical requirements",R.mechanical_requirements||[])}
+     ${sec("Electrical requirements",R.electrical_requirements||[])}
+     ${sec("Software requirements",R.software_requirements||[])}
+     <div class="grp"><h3>Required submissions</h3>${(R.required_submissions||[]).map(s=>
+       `<div class="f"><div class="k">${esc(s.name)} (${esc(s.rule)})</div><div class="v">${esc(s.detail)}</div></div>`).join("")}</div>
+     </div>`;
+})();
+
+/* ---- our plan ---- */
+(function(){
+  const P=(window.DV&&DV.plan)||null; if(!P){document.getElementById("planbox").innerHTML="";return;}
+  const li=a=>`<ul style="margin:4px 0 0;padding-left:18px">${(a||[]).map(x=>`<li style="margin-bottom:3px">${esc(x)}</li>`).join("")}</ul>`;
+  const block=(t,a)=>(a&&a.length)?`<div class="f"><div class="k">${esc(t)}</div>${li(a)}</div>`:"";
+  let h=`<div class="panelbox" style="padding:22px 26px">
+    <h2 style="margin:0 0 6px;font-size:19px">${esc(P.title)}</h2>
+    <p style="color:var(--text-secondary);margin:0 0 4px">${esc(P.target)}</p>
+    <div class="note"><b>Governing principle.</b> ${esc(P.governing_principle)}</div>`;
+  P.phases.forEach(ph=>{
+    const cur=ph.status==="CURRENT", done=ph.status==="COMPLETE";
+    h+=`<div class="grp" style="${cur?"border-left:3px solid var(--us);padding-left:14px":""}">
+      <h3>Phase ${ph.id} · ${esc(ph.window)} · ${esc(ph.months)}${ph.status?" · "+esc(ph.status):""}</h3>
+      <div style="font-weight:650;font-size:14px;margin-bottom:3px">${esc(ph.name)}${done?" ✓":""}</div>
+      <div style="font-size:11.5px;color:var(--text-muted);margin-bottom:8px">${esc(ph.season||"")}</div>
+      ${ph.why_now?`<div class="note" style="margin:8px 0">${esc(ph.why_now)}</div>`:""}
+      ${block("Delivered",ph.delivered)}${block("Mechanical",ph.mechanical)}${block("Electrical",ph.electrical)}
+      ${block("Software",ph.software)}${block("Documentation",ph.documentation)}${block("Activities",ph.activities)}
+      ${block("Staffing",ph.staffing)}
+      ${ph.target_volume?`<div class="f"><div class="k">Target volume</div><div class="v">${esc(ph.target_volume)}</div></div>`:""}
+      ${ph.gate?`<div class="f"><div class="k">Gate</div><div class="v" style="font-weight:600">${esc(ph.gate)}</div></div>`:""}
+    </div>`;
+  });
+  h+=`<div class="grp"><h3>Next 30 days</h3>${li(P.immediate_actions_next_30_days)}</div>`;
+  h+=`<div class="grp"><h3>De-scope ladder</h3><div class="v" style="margin-bottom:6px">${esc(P.descope_ladder.principle)}</div>
+      ${li(P.descope_ladder.steps)}
+      <div class="note" style="border-left-color:var(--bad)"><b>Never drop:</b> ${esc(P.descope_ladder.never_drop)}</div></div>`;
+  h+=`<div class="grp"><h3>Top risks</h3>`+P.top_risks.map(r=>
+      `<div class="f"><div class="k">${esc(r.risk)}</div>
+       <div class="v"><b>Impact:</b> ${esc(r.impact)}<br><b>Mitigation:</b> ${esc(r.mitigation)}</div></div>`).join("")+`</div>`;
+  document.getElementById("planbox").innerHTML=h+`</div>`;
+})();
+
+/* ---- detail ---- */
+const GROUPS=[
+  ["Overview",["item_name","item_category","university","country","competition_series","evidence_quality","summary"]],
+  ["Ramp history",["dv_program_start","first_autonomous_run_date","first_dv_competition",
+    "months_concept_to_first_autonomous_run","months_concept_to_first_competition","months_to_first_scoring_run",
+    "ramp_phases","what_slipped","platform_prerequisites"]],
+  ["Mechanical",["ebs_design","ebs_development_duration","ebs_cost_estimate","steering_actuation",
+    "brake_actuation","sensor_mounting_packaging","mass_added","chassis_impact"]],
+  ["Electrical",["compute_platform","sensor_suite","power_budget","shutdown_circuit_implementation",
+    "remote_stop_system","status_indicators","custom_pcbs"]],
+  ["Software",["software_stack","ros_version","perception_approach","slam_localization_approach",
+    "planning_approach","control_approach","simulation_tooling","ci_cd_testing","data_logging","open_source_repos"]],
+  ["Schedule drivers",["critical_path_items","long_lead_procurement","first_static_test_date",
+    "first_dynamic_test_date","testing_hours_before_first_comp","validation_strategy"]],
+  ["Rules & competition",["rules_compliance_challenges","tech_inspection_experience","ebs_test_experience","documentation_burden"]],
+  ["Performance",["dv_event_results","autonomous_speeds_achieved","ebs_deceleration_achieved",
+    "perception_range_achieved","reliability_notes"]],
+  ["Lessons",["top_mistakes","advice_for_new_teams","team_structure_dv","recruiting_and_knowledge_transfer",
+    "budget_estimate","recommended_sequence","applicability_to_24_month_ramp"]],
+];
+const LBL=k=>k.replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+function render(d){
+  const ev=strip(d.evidence_quality).toLowerCase();
+  let h=`<h2>${esc(strip(d.item_name))}</h2>
+    <div style="margin-bottom:10px"><span class="pill ${esc(ev)}">${esc(ev||"n/a")} evidence</span></div>`;
+  const tl=d.year_by_year_timeline||[];
+  if(tl.length){
+    h+=`<div class="grp"><h3>Year by year</h3><div class="tl">`+tl.map(e=>{
+      const f=(k,c,n)=>{const v=strip(e[k]); return (v&&!/^n\/?a$/i.test(v))?`<div class="fo ${c}"><b>${n}</b>${esc(v)}</div>`:"";};
+      return `<div class="ye"><div class="yr">${esc(strip(e.year))}</div>
+        <div class="ph">${esc(strip(e.phase_name))}</div>
+        ${f("mechanical_focus","m","M")}${f("electrical_focus","e","E")}${f("software_focus","s","S")}
+        ${strip(e.milestone_achieved)?`<div class="fo"><b>▸</b>${esc(strip(e.milestone_achieved))}</div>`:""}
+        ${strip(e.competition_result)?`<div class="fo"><b>★</b>${esc(strip(e.competition_result))}</div>`:""}</div>`;
+    }).join("")+`</div></div>`;
+  }
+  GROUPS.forEach(([title,keys])=>{
+    const rows=keys.filter(k=>{const v=strip(d[k]);return v&&!/^n\/?a$/i.test(v)});
+    if(!rows.length) return;
+    h+=`<div class="grp"><h3>${esc(title)}</h3>`+rows.map(k=>
+      `<div class="f"><div class="k">${esc(LBL(k))}</div>
+       <div class="v ${isUnc(d[k])?"unc":""}">${esc(strip(d[k]))}</div></div>`).join("")+`</div>`;
+  });
+  const su=d.source_urls||[];
+  if(su.length) h+=`<div class="grp"><h3>Sources (${su.length})</h3><div class="srcs">`+
+    su.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>`).join("")+`</div></div>`;
+  return h;
+}
+function show(d){
+  document.getElementById("detailbody").innerHTML=render(d);
+  const el=document.getElementById("detail"); el.classList.add("open"); el.setAttribute("aria-hidden","false"); el.scrollTop=0;
+}
+function openDetail(i){ show(T[i]); }
+function openSub(i){ show(S[i]); }
+function closeDetail(){ const el=document.getElementById("detail"); el.classList.remove("open"); el.setAttribute("aria-hidden","true"); }
+addEventListener("keydown",e=>{if(e.key==="Escape")closeDetail()});
+</script>
+</body>
+</html>

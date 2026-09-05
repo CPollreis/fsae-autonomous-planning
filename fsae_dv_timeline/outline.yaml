@@ -1,0 +1,185 @@
+topic: FSAE Driverless Program Ramp-Up Timelines
+description: >
+  Benchmark research into how Formula Student / Formula SAE teams sequenced their
+  driverless (autonomous systems) programs from initial concept to a competition-scoring
+  driverless vehicle, covering mechanical, electrical, and software workstreams and the
+  rules-driven deliverables that gate them. Used to draft the UMSAE driverless timeline
+  for June 2026 -> June 2028.
+
+context:
+  our_team: UMSAE (University of Manitoba) Driverless
+  program_start: 2026-06
+  target: 2028-06
+  target_bar: >
+    Pass Driverless System Inspection and EBS test, and score in all three DV dynamic
+    events (Acceleration 75, Skidpad 75, Autocross 100) plus DV Design 150 = 400 points.
+  platform: Existing running Formula SAE Electric vehicle (EV platform is NOT a blocker)
+  official_fsae_roadmap: >
+    2026 Introduction (optional), 2027-2029 Expansion (optional), 2030 Full Integration.
+    UMSAE targeting full DV capability by 2028, i.e. 2 years ahead of the 2030 mandate.
+  local_rules_corpus: /Users/calebpollreis/Developer/UMSAE/DV/timeline_research
+
+items:
+  # ---------- Category 1: European / veteran ramp case studies ----------
+  - name: AMZ Racing ETH Zurich
+    category: Veteran European
+    description: >
+      Won the first FSG Driverless event in 2017. The canonical FS driverless architecture
+      (fsd_skeleton) that most teams copied. Research how they went from zero to a winning
+      driverless car, what the first 24 months looked like, and what they built vs bought.
+
+  - name: KA-RaceIng KIT
+    category: Veteran European
+    description: >
+      Karlsruhe Institute of Technology. Long-running driverless program with heavy
+      publication output. Research their DV ramp phases, EBS and steering actuation
+      generations, and their software stack evolution.
+
+  - name: TUfast Racing Team TU Munich
+    category: Veteran European
+    description: >
+      TU Munich driverless program, multiple FSG Driverless wins. Research their concept-to-
+      competition timeline, team structure for DV, and their testing and validation cadence.
+
+  - name: DUT Racing TU Delft
+    category: Veteran European
+    description: >
+      Formula Student Team Delft. Strong driverless results and public technical material.
+      Research their ramp timeline, sensor/compute choices per year, and mechanical
+      integration of EBS and steering actuation.
+
+  - name: Chalmers Formula Student
+    category: Veteran European
+    description: >
+      Swedish team with documented driverless development, including published theses on
+      their autonomous system. Research their first-two-years ramp and resource profile.
+
+  - name: e-gnition Hamburg TUHH
+    category: Veteran European
+    description: >
+      Hamburg University of Technology. Publishes technical detail and open material on
+      their driverless system. Research their DV ramp, safety concept, and cost/effort.
+
+  - name: KTH Formula Student
+    category: Veteran European
+    description: >
+      KTH Royal Institute of Technology driverless program. Research their timeline,
+      autonomous stack, and how they staffed and sequenced the DV subteam.
+
+  - name: Squadra Corse PoliTo Driverless
+    category: Veteran European
+    description: >
+      Politecnico di Torino driverless program with published papers on their autonomous
+      pipeline. Research their ramp from first driverless concept to competition scoring.
+
+  # ---------- Category 2: Fast / small-team ramps ----------
+  - name: Edinburgh University Formula Student EUFS
+    category: Fast Ramp
+    description: >
+      Built eufs_sim, the most widely used open FS driverless simulator. Research how a
+      mid-size team ramped driverless, and how simulation-first development changed their
+      timeline.
+
+  - name: MUR Motorsports University of Melbourne
+    category: Fast Ramp
+    description: >
+      Melbourne team that added driverless with a resource profile comparable to a North
+      American team. Research their concept-to-first-autonomous-run duration and staging.
+
+  - name: QUT Motorsport
+    category: Fast Ramp
+    description: >
+      Queensland University of Technology. Public, actively maintained ROS2 driverless
+      monorepo (QUTMS_Driverless). Research their ramp timeline and how they sequenced
+      perception, mapping, planning, and control across seasons.
+
+  - name: Monash Motorsport
+    category: Fast Ramp
+    description: >
+      Australian team with a driverless program and strong documentation culture. Research
+      their DV ramp, testing strategy, and mechanical actuation approach.
+
+  # ---------- Category 3: North American peers on the new FSAE roadmap ----------
+  - name: Carnegie Mellon Racing
+    category: North American Peer
+    description: >
+      US team with an active driverless program (ROS2 Humble, GTSAM SLAM, docker-first).
+      Research their DV timeline, how they staffed it, and their progress against the new
+      FSAE Driverless roadmap.
+
+  - name: MIT Motorsports
+    category: North American Peer
+    description: >
+      MIT driverless effort on an existing EV platform. Research their ramp timeline,
+      subsystem sequencing, and any published DV results or Notice of Intent participation.
+
+  - name: University of Toronto Formula Racing UTFR
+    category: North American Peer
+    description: >
+      Canadian peer team with a driverless program. Highest-relevance comparison for UMSAE
+      on climate, funding model, and academic calendar. Research their DV ramp in detail.
+
+  - name: Cornell Racing Driverless
+    category: North American Peer
+    description: >
+      Cornell FSAE driverless effort. Research whether and how they ramped driverless, their
+      timeline, and their approach to the 2026+ FSAE Driverless Class.
+
+  # ---------- Category 4: Cross-team subsystem / workstream deep dives ----------
+  - name: Emergency Brake System Design Approaches
+    category: Subsystem Deep Dive
+    description: >
+      NOT a team. Cross-team engineering study of Emergency Brake System (EBS) designs used
+      in Formula Student driverless: pneumatic accumulator, hydraulic accumulator, and
+      electromechanical. Must satisfy FSAE DT.3.2 (passive mechanical energy storage,
+      <=200 ms reaction, >10 m/s2 average deceleration, half performance on single failure)
+      and the Driverless System Brake DT.3.1 with two Deactivation Points. Research typical
+      cost, component lead times, design iterations required, validation rig needs, and how
+      many months teams spend from concept to passing the EBS test.
+
+  - name: Steering Actuation Approaches for Driverless
+    category: Subsystem Deep Dive
+    description: >
+      NOT a team. Cross-team study of steering actuation for FS driverless: motor sizing and
+      selection, gearbox/belt choice, column vs rack mounting, actuator decoupling per
+      DT.2.2, manual steering preservation per DT.2.1.1, encoder/feedback, and control
+      bandwidth. Research cost, lead times, packaging impact, and development duration.
+
+  - name: Sensor Suite and Compute Platform Selection
+    category: Subsystem Deep Dive
+    description: >
+      NOT a team. Cross-team study of FS driverless sensor suites (LiDAR models, mono/stereo
+      cameras, IMU, GNSS/RTK, wheel speed) and compute platforms (NVIDIA Jetson variants,
+      x86 mini-PC, custom). Include DT.2.3 mounting constraints, power budget, thermals,
+      2026-era pricing, procurement lead times, and typical bring-up duration per sensor.
+
+  - name: Autonomous Software Stack and Simulation Tooling
+    category: Subsystem Deep Dive
+    description: >
+      NOT a team. Cross-team study of FS driverless software: ROS2 distributions, perception
+      (cone detection, sensor fusion), SLAM/state estimation, path planning, controls, plus
+      simulators (eufs_sim, FSDS, Gazebo, CARLA) and CI/CD, HIL, and regression testing.
+      Research realistic development durations per module for a student team.
+
+  - name: Driverless Safety Concept and Required Documentation
+    category: Subsystem Deep Dive
+    description: >
+      NOT a team. Study of the documentation and functional-safety deliverables gating FSAE
+      Driverless participation: Notice of Intent, Driverless Systems Form (DSF), Vehicle
+      Status Video, DV Design Event submissions, and safety analysis practice (ISO 26262 /
+      ISO 21448 style FMEA, fault trees). Research how long teams take to produce these,
+      common rejection/penalty causes, and how they gate the build schedule.
+
+  - name: Driverless Testing Infrastructure and Cadence
+    category: Subsystem Deep Dive
+    description: >
+      NOT a team. Study of what FS driverless teams need to actually test: track/lot access,
+      cone inventory and layouts, safety marshalling, remote stop procedures, brake test
+      rigs, HIL benches, data logging and review loops. Research testing hours teams log
+      before a first competition and how they phase static -> low-speed -> full-speed testing.
+
+execution:
+  batch_size: 6
+  items_per_agent: 2
+  output_dir: ./fsae_dv_timeline/results
+  agent_model: sonnet

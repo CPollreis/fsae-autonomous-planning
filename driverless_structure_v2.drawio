@@ -1,0 +1,212 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:147.0) Gecko/20100101 Firefox/147.0">
+  <diagram name="Page-1" id="b4UW2xRiV2eCUDoi1A25">
+    <mxGraphModel dx="2471" dy="1031" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-7" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="1hEIRoDbOSdjLODKiPfq-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-280" y="460" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-11" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="1hEIRoDbOSdjLODKiPfq-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-340" y="460" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-12" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="1hEIRoDbOSdjLODKiPfq-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-280" y="460" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-13" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="1hEIRoDbOSdjLODKiPfq-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-220" y="460" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-14" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="1hEIRoDbOSdjLODKiPfq-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-280" y="460" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-2" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-80" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#1000FF);" value="&lt;div&gt;DSO&lt;/div&gt;caleb" vertex="1">
+          <mxGeometry height="60" width="120" x="-140" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-34" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="1hEIRoDbOSdjLODKiPfq-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#C828B2);" value="&lt;div&gt;Perception&lt;/div&gt;&lt;div&gt;___ with lots of help from caleb&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-740" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-35" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="1hEIRoDbOSdjLODKiPfq-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#4B1245);strokeColor=light-dark(#000000,#FFFFFF);" value="&lt;div&gt;Localization + Mapping&amp;nbsp;&lt;/div&gt;&lt;div&gt;ced&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-540" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-36" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-280" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#FF0000);" value="&lt;div&gt;Trajectory + Planning&lt;/div&gt;&lt;div&gt;angel&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-340" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-37" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-80" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#FF8000);" value="&lt;div&gt;Vehicle Control Systems&lt;/div&gt;&lt;div&gt;mason&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-140" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-38" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#000000,#CCCC00);" value="&lt;div&gt;Testing&lt;/div&gt;&lt;div&gt;evan&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="60" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. Sensor placement and coverage&lt;/div&gt;&lt;div&gt;2. Cone Detection Algorithm&lt;/div&gt;&lt;div&gt;3. Low-level sensor fusion&lt;/div&gt;&lt;div&gt;4. Object-level fusion&lt;/div&gt;&lt;div&gt;5. Scene Understanding&lt;/div&gt;&lt;div&gt;6. Robustness and Reliability&lt;/div&gt;&lt;div&gt;7. Perception Pipeline Latency&lt;/div&gt;&lt;div&gt;8. GT and percep. validation methods&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="160" x="-760" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;1. Localization concept&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2. Map representation&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;3. Vehicle state estimation (position, heading, velocity, etc.)&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;4. Filter/Alg. selection&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;5. Map init. and convergence&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;6. Loop closure and drift correction&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;7. Localization accuracy&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="160" x="-560" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-21" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="1hEIRoDbOSdjLODKiPfq-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FF0000);" value="&lt;div&gt;Notes:&lt;/div&gt;&lt;div&gt;Most points in design (as of July 2026)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="160" x="-760" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-24" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-480" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FF0000);" value="&lt;div&gt;Notes:&amp;nbsp;&lt;/div&gt;&lt;div&gt;- Lots of learning here first, I wouldn&#39;t expect these sections to have members yet&lt;/div&gt;&lt;div&gt;- Heavily determines performance&lt;/div&gt;&lt;div&gt;- Think &quot;What can we do given the rules constraints to&amp;nbsp;&lt;i&gt;outperform&lt;/i&gt;&amp;nbsp;other teams&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="360" x="-560" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-31" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="1hEIRoDbOSdjLODKiPfq-41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="940" />
+              <mxPoint x="-80" y="940" />
+            </Array>
+            <mxPoint x="-80" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-32" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="1hEIRoDbOSdjLODKiPfq-42">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="940" />
+              <mxPoint x="120" y="940" />
+            </Array>
+            <mxPoint x="120" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FF0000);" value="&lt;div&gt;Notes:&lt;/div&gt;&lt;div&gt;- Rules heavy sections&lt;/div&gt;&lt;div&gt;- Works w/ hardware to ensure high level abstraction (Perception &amp;amp; Estimation) have valid outputs&lt;/div&gt;&lt;div&gt;- More mechanical and electrical interfacing work&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="360" x="-160" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div align=&quot;left&quot;&gt;1. Planning concept&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2. Path generation&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;3. Vehicle model used in planning&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;4. Speed profile planning&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;5. Re-planning&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;6. Validation&lt;/div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="160" x="-360" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;1. Bring up: LiDAR sensor&amp;nbsp;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2.&amp;nbsp;Bring up: Camera firmware&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;3.&amp;nbsp;Bring up: Jetson controller&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;4. Low level comms design (CAN, UART, SPI, ADC etc.)&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;div align=&quot;left&quot;&gt;5. New state machine additions, and VCU (EV) firmware design&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;6. Spin / Actuation motor(s)&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;7. Driverless Mission Indicator updates (dash display)&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;8. Docker containerization&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;9. Lateral vehicle control&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;10. Longitudinal vehicle control&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;11. Actuator interfaces&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;12. Control validation&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="310" width="160" x="-160" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="1hEIRoDbOSdjLODKiPfq-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. Development Methodology&lt;/div&gt;&lt;div&gt;2.&amp;nbsp; Testing strategy (make sure people write unit tests, integration tests, HIL, simulation-based regression tests)&lt;/div&gt;&lt;div&gt;3. Bring up: CI/CD testing suite&lt;/div&gt;&lt;div&gt;4. Documentation practices&lt;/div&gt;&lt;div&gt;5. Test scenario coverage&lt;/div&gt;&lt;div&gt;6. Key performance indicator baselines (KPI)&lt;/div&gt;&lt;div&gt;7. Failure mode documentation&lt;/div&gt;&lt;div&gt;8. Agreement/disagreement with predictions&lt;/div&gt;&lt;div&gt;9. Assess remaining risks and lessons learned&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="310" width="160" x="40" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-11" edge="1" parent="1" source="HgY52ReaW54-mLXrtjSb-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HgY52ReaW54-mLXrtjSb-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#000000,#097709);" value="&lt;div&gt;Sim&lt;/div&gt;ethan" vertex="1">
+          <mxGeometry height="60" width="120" x="260" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. DAQ Strategy&lt;br&gt;2. Storage architecture (on board, redundancy, data integrity)&lt;/div&gt;&lt;div&gt;3. Sim integration (synthetic data generation, sim-to-real gap, regression suites)&lt;/div&gt;&lt;div&gt;4. Data visualization from sim&lt;/div&gt;&lt;div&gt;5. Feedback loop (define how data analysis drives design and software improvements)&lt;/div&gt;&lt;div&gt;6. Multi-modal labeling?&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="160" x="240" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-12" edge="1" parent="1" source="HgY52ReaW54-mLXrtjSb-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HgY52ReaW54-mLXrtjSb-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#000000,#3399FF);" value="&lt;div&gt;Web&lt;/div&gt;geet" vertex="1">
+          <mxGeometry height="60" width="120" x="460" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;blockquote&gt;&lt;div&gt;Responsibilities&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;&lt;div&gt;1. Website/front end dev for documentation (and future plans TBD)&lt;/div&gt;&lt;div&gt;2. Comm. with the rest of the team as necessary&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="160" x="440" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-9" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="460" />
+              <mxPoint x="520" y="520" />
+            </Array>
+            <mxPoint x="120" y="460" as="sourcePoint" />
+            <mxPoint x="520" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-10" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="460" />
+              <mxPoint x="320" y="520" />
+            </Array>
+            <mxPoint x="-30" y="460" as="sourcePoint" />
+            <mxPoint x="320" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;1. Vehicle Architecture selection&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2. Synthesis of Sub-systems&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;3. Integration between subsystems (including mech and sparkies)&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;4. Final say in safety requirements and rules compliance&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;5. Schedule and milestones, team org&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;6. Overall system design choices&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;7. Version control strat.&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;9. Submits official DV documents to FSAEonline&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;10.&amp;nbsp;Final say in design decisions across all things DV&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="240" x="-200" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-14" edge="1" parent="1" source="HgY52ReaW54-mLXrtjSb-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HgY52ReaW54-mLXrtjSb-16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#4D4D4D);" value="&lt;div&gt;EVERYONE&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="285" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;1.&amp;nbsp;Competition and Design&amp;nbsp;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;Strategy&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2. team constraints&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;3. design goals and point correlation throughout sections&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;4. Overall vehicle goals&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;5. Safety concepts (ISO 26262 and 21448)&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;6. Writing unit tests for their own PRs&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;7. Version control strat. discussion&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="310" x="190" y="120.06" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#4D4D4D);" value="CR: packaging lead" vertex="1">
+          <mxGeometry height="60" width="120" x="-570" y="59.94" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;Responsibilities&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;1. sensor locations&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2. PCBs / compute device locations and mounting&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;3. thermals with&amp;nbsp;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="160" x="-590" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-19" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="1hEIRoDbOSdjLODKiPfq-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-21" edge="1" parent="1" source="HgY52ReaW54-mLXrtjSb-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="HgY52ReaW54-mLXrtjSb-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FF0000);" value="&lt;div&gt;Notes:&lt;/div&gt;- Work with VD lead to create car goals" vertex="1">
+          <mxGeometry height="90" width="160" x="240" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-23" edge="1" parent="1" source="HgY52ReaW54-mLXrtjSb-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="HgY52ReaW54-mLXrtjSb-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FF0000);" value="&lt;div&gt;Notes:&lt;/div&gt;- Meetings in person are optional for web" vertex="1">
+          <mxGeometry height="90" width="160" x="440" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="HgY52ReaW54-mLXrtjSb-25" edge="1" parent="1" source="1hEIRoDbOSdjLODKiPfq-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;startArrow=classic;startFill=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-280" y="880" />
+              <mxPoint x="-380" y="880" />
+            </Array>
+            <mxPoint x="-280" y="880" as="sourcePoint" />
+            <mxPoint x="-380" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

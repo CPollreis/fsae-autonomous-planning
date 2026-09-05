@@ -1,0 +1,103 @@
+{
+  "source_documents": [
+    "Formula_SAE_Driverless_Implementation_Roadmap_rev8.5.2026.pdf",
+    "FSAE_Driverless_2026_V4.pdf (Driverless Supplement, v4.0, 27 May 2026)",
+    "FSAE_DSF_V26.1.2.pdf (Driverless Systems Form, v26.1.2, 8 Jan 2026)",
+    "FSAE_RSS_Info_V26.1.3.pdf (Remote Stop System, v26.1.3, 31 Oct 2025)",
+    "FSAE_Driverless_Design_ScoreSheet_v1.pdf",
+    "FSG26_AS_Beginners_Guide_v1.0.pdf",
+    "FS_Driverless_Specification_2026_v1.1.pdf"
+  ],
+  "official_roadmap": {
+    "2026": "Introduction Phase, optional. Notice of Intent opt-in. Tech inspection, Design, up to 3 dynamic events. Scored separately from Electric.",
+    "2027_2029": "Expansion Phase, optional. Adds Cost evaluation, up to 4 dynamic events. More entries may open up.",
+    "2030": "Full Integration. DV Acceleration and DV Skidpad fold into the 1000-point overall. Teams must opt OUT. Driverless Cup (600 pts) launches.",
+    "umsae_position": "Targeting full DV capability June 2028, two years ahead of the 2030 mandate."
+  },
+  "scoring_model_2026": {
+    "total": 400,
+    "design": 150,
+    "acceleration": {"total": 75, "starting": 25, "completion": 25, "performance": 25},
+    "skidpad": {"total": 75, "starting": 25, "completion": 25, "performance": 25},
+    "autocross": {"total": 100, "starting": 25, "completion": 25, "performance": 50},
+    "strategic_insight": "150 of the 250 dynamic points (all Starting + Completion points) are SPEED-INDEPENDENT. A slow but reliable car that crosses every start line and completes one run per event banks 150 dynamic points. Combined with a strong Design score (150), reliability alone is worth up to ~300/400. Speed is the last 100 points, not the first. This should dominate schedule prioritization."
+  },
+  "gating_inspections": {
+    "sequence": "Technical Inspection (IN.3.1) -> Driverless Inspection (IN.3.2) -> Emergency Brake System Test. All three required to operate in Driverless Mode (DI.1.1).",
+    "ebs_test": {
+      "rule": "DI.2",
+      "accelerate_to": "40 km/h minimum within 20 m",
+      "stop_within": "8.5 m from remote stop actuation",
+      "note": "Performed after the rest of Technical Inspection. Wet conditions may be scaled by officials."
+    },
+    "inspection_mission": {
+      "rule": "DO.1.3",
+      "requirements": "Car supported off ground, wheels removed. Slowly spin drivetrain, slowly sine-sweep steering, transition to Finished after 25-30 s."
+    },
+    "bring_to_inspection": ["Sensor data sheets", "Documents proving sensors meet local legislation", "Remote Stop remote control", "Tools for driverless inspection", "Copies of submitted Rules Questions and answers"]
+  },
+  "mechanical_requirements": [
+    {"id": "DT.3.1", "name": "Driverless System Brake (DSB)", "detail": "Required. Tractive System is NOT a brake system. All parts and mountings inside Rollover Protection Envelope. Manual braking must always remain possible. May be part of the hydraulic brake system."},
+    {"id": "DT.3.1.2", "name": "Deactivation Points", "detail": "Max two. Inside the DT.2.3 volume, near the DSMS or on top of vehicle between Front Bulkhead and Front Hoop near centerline. Near each other, protected from cone strikes, marked 'Brake Release', red handle, must work with NO electrical power, max two simple push/pull/turn actions with the order shown next to them."},
+    {"id": "DT.3.2.1", "name": "EBS energy storage", "detail": "EBS must ONLY use passive systems with mechanical energy storage. Directly supplied by GLVMS, DSMS, Remote Stop Relay and EBS Relay with no delay."},
+    {"id": "DT.3.2.5", "name": "EBS performance", "detail": "Reaction time (SDC open to start of deceleration) <= 200 ms. Average deceleration > 10 m/s^2 dry. On single failure should still achieve at least half performance. Must stay in stable driving condition while decelerating."},
+    {"id": "DT.2.1", "name": "Steering actuation", "detail": "Manual steering must be possible with DSMS Off with no other steps. Steering actuation only possible when Ready to Drive. Steering may stay active during an Emergency Brake Maneuver while moving."},
+    {"id": "DT.2.2", "name": "Actuator decoupling", "detail": "If actuators are disconnected for Manual Mode: no parts removed, mechanism must not block manual operation in any position, must lock securely in both positions."},
+    {"id": "DT.2.3", "name": "Sensor and electronics mounting", "detail": "All DV components including sensors and cameras must sit inside the volume formed by the outside surfaces of chassis and tires, or in the permitted Aerodynamic Device locations (T.7.5-T.7.7)."}
+  ],
+  "electrical_requirements": [
+    {"id": "DT.1.1", "name": "Driverless System Master Switch (DSMS)", "detail": "Meets T.9.3 config/location. Direct acting, not through relay or logic. Centered in a fully blue circular area >50 mm diameter, labeled 'DS', lockout/tagout capable in OFF. When OFF: no steering/braking/propulsion actuation, car pushable, car drivable in Manual Mode. Sensors and processing may still run."},
+    {"id": "DT.1.2", "name": "Tractive System Activation Button", "detail": "Located near the Tractive System Master Switch. Puts car in TS Active from outside the vehicle. Does nothing when DSMS is OFF."},
+    {"id": "DT.1.3", "name": "Driverless System Status Indicators (DSSI)", "detail": "THREE indicators: one each side behind cockpit (160 mm below Main Hoop top to 600 mm above ground), one at rear on centerline (160 mm below Main Hoop top to 100 mm above brake light). At least one visible from any angle at 1.6 m height within 3 m radius. Black background, >=15 cm^2 shining surface. Bare LEDs <=20 mm apart; single LED line >=150 mm long. No other function."},
+    {"id": "DO.1.1.3", "name": "DSSI states", "detail": "Off=Off, Ready=Yellow Continuous, Driving=Yellow Flashing, Finished=Blue Continuous, Emergency=Blue Flashing."},
+    {"id": "DT.1.4", "name": "Driverless Alert Sound", "detail": "On Emergency status: intermittent tone 1-5 Hz at 50% duty, 80-90 dBA fast weighting within 2 m radius, for 8-10 s."},
+    {"id": "DO.1.4", "name": "Driverless Mission Indicator", "detail": "Shows selected mission, easily readable, on the dash or near the DSMS."},
+    {"id": "DT.3.3 / RS", "name": "Remote Stop System (RSS)", "detail": "MANDATED HARDWARE: Gross-Funk GmbH control box + vehicle module, latest revision with E-Key. SIL3 (EN61508) certified, 25 mW, 12-24 V (0.26 A @ 12 V), 450 g, IP20 receiver / IP65 sender. Vehicle module has an NO relay in the shutdown circuit, opens on shutdown, signal loss, and power loss, 4 A max. CANopen at Node-ID 0x011, 500 kbps at competition, set by DIP switches. Antenna must be unobstructed. LONG-LEAD PROCUREMENT ITEM."},
+    {"id": "DT.4", "name": "Shutdown circuit additions", "detail": "Three additions: (1) Driverless System Relay, normally open permissive, closes when DS checks pass. (2) Remote Stop Relay, in series with shutdown buttons, bypassed by a normally-closed relay in Manual Mode; bypass relay directly supplied by DSMS with safety-certified forcibly guided or mirrored NO contact in series with DSMS. (3) EBS Relay, fail-open, coil in parallel with the Isolation Relays."},
+    {"id": "DO.2.2", "name": "Wireless restrictions", "detail": "Between start and finish line: no wireless TO the vehicle. One-way telemetry FROM the vehicle is allowed. The Remote Stop Control Box is the only device that may command the car."}
+  ],
+  "software_requirements": [
+    {"id": "DO.1.2.1", "name": "Required missions", "detail": "Must implement at minimum: Inspection, Manual Driving, EBS Test, Acceleration, Skidpad, Autocross. Trackdrive optional for 2026, expected later."},
+    {"id": "DO.1.2.2", "name": "Mission selection", "detail": "Must not use an external device. Needs onboard selection (dash/rotary switch)."},
+    {"id": "DT.3.1.3", "name": "Startup check and monitoring", "detail": "A Startup Check must prove the DSB builds brake pressure as expected before Ready is possible. After that, DSB and its signals must be CONTINUOUSLY monitored for failures."},
+    {"id": "DT.3.2.3", "name": "Safe State logic", "detail": "Go to Safe State if EBS functionality cannot be ensured, or if one additional single point of failure would cause total loss of braking. Safe State = standstill + brakes engaged + open shutdown circuit."},
+    {"id": "DO.1.1", "name": "State machine", "detail": "Driverless System Status determined by the DO.1.1.1 flowchart: Off, Ready, Driving, Finished, Emergency."},
+    {"id": "DD.1.2.4", "name": "No prior map", "detail": "No map data is given. No artificial landmarks or beacons may be placed. Track must be discovered online from cones alone."},
+    {"id": "DD.3.2.2", "name": "Start timing", "detail": "Ready to Drive only via the 'Go' signal from the Remote Stop Control Box, after >=5 s in Ready. Run must start within 30 s of Go or it is DNF."},
+    {"id": "DD.3.1.5", "name": "Staging timing", "detail": "Must enter Driverless System Ready within 1 minute of staging or the team may be sent back."},
+    {"id": "DD.2.1.3", "name": "Unsafe Stop", "detail": "DQ if the car does not stop in the specified area OR does not reach Finished within 30 s of stopping."}
+  ],
+  "track_specification": {
+    "cones": "Left border small blue, right border small yellow, entry/exit small orange, start/finish/timing large orange. Small 228x228x325 mm, large 285x285x505 mm. WEMAS part numbers specified in DD.1.3.1.",
+    "autocross_trackdrive": "Straights <=80 m, min track width 3 m, min turning diameter 9 m, lap length 200-500 m, chicanes/hairpins/decreasing radius turns.",
+    "stop_boxes": "Acceleration: full stop within 75 m past finish. Skidpad: within 25 m. Autocross/Trackdrive: within 30 m.",
+    "staging": "Acceleration 0.30 m from start line. Skidpad 15 m. Autocross/Trackdrive front wheels 6 m behind start line.",
+    "penalties": "Acceleration/Autocross DOO = 2 s each. Skidpad DOO = 0.125 s each. Autocross Off Course = 10 s each. Acceleration/Skidpad Off Course = DNF. Unsafe Stop = DQ."
+  },
+  "required_submissions": [
+    {"name": "Driverless Notice of Intent", "rule": "Roadmap / DA", "detail": "Opt-in to the Driverless Class. Must include anticipated milestones, overview of sensors, compute and software stack, actuation method, safety strategy, and team structure. Signed by Team Captain and Faculty Advisor. Organizers may use it to screen entries when slots are limited."},
+    {"name": "Driverless Systems Form (DSF)", "rule": "DA.2.2.1", "detail": "Eight sections: DSF.1 Overall/formatting, DSF.2 Actuator Power Supply Schematic, DSF.3 Continuous Monitoring Flowchart, DSF.4 High Level Block Diagram, DSF.5 Pressure System Overview, DSF.6 Startup Checks Flowchart, DSF.7 Mechanical Assembly Drawings, DSF.8 CAN Database File. Strict formatting: team/university/car number and section name on every page, numbered pages, vector or 300dpi images, searchable text, consistent component naming across all documents."},
+    {"name": "Vehicle Status Video", "rule": "DA.2.2.2", "detail": "Video showing the vehicle operating in Driverless Mode, submitted before competition. THIS IS THE REAL DEADLINE: it forces a working autonomous car months before the event."},
+    {"name": "Driverless Component Summary", "rule": "DS.1.2", "detail": "Itemized list of components that are part of the DV system and serve no other purpose. Excludes them from the Electric Cost Event."},
+    {"name": "Design Briefing / DV System Summary", "rule": "DS.2.2", "detail": "Driverless System Summary included in the Design Briefing template (S.4.3)."}
+  ],
+  "design_event_scoring_areas": [
+    "Overall Vehicle Concept",
+    "Sub-systems and Cross-Functional Knowledge",
+    "Functional Safety (documentation, integration, real gap characterization)",
+    "Software Architecture",
+    "Software Development Process (quality outcomes, regression testing)",
+    "Data Management and Analytics",
+    "Compute Platform (latency profiling, competition conditions, monitoring)",
+    "Vehicle Performance (autonomous controls, calculations/modeling and correlation)",
+    "System-Level Performance Integration (lessons learned)",
+    "Perception and Sensors (validated)",
+    "Localization and Mapping (time and reliability, update strategy)",
+    "Trajectory and Planning (friction limits)",
+    "Vehicle Controls (rationale and tuning, limit handling, re-calibration strategy)",
+    "Integrated Vehicle Validation"
+  ],
+  "team_roles": {
+    "DSO": "Driverless System Officer (DA.4.1). One or more required. Must be a valid team member, qualified to handle the DV system and its failures, and at least one DSO must NOT be a driver. Only person who may declare the DV system safe. Must accompany the vehicle whenever it is moved with the DV system installed, and be reachable by phone at all times during the event."
+  }
+}
