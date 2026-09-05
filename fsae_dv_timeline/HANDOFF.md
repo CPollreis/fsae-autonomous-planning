@@ -163,7 +163,7 @@ entry scores zero dynamic points.
 ## Open items
 
 **The staffing gap is the highest-leverage fix.** The org chart
-(`driverless_structure_v2.drawio`) has no owner for the Driverless System Brake / EBS, and no
+(`dv_implementation.drawio`, "DV software" page) has no owner for the Driverless System Brake / EBS, and no
 owner for the DV electrical safety chain (DSMS, three DSSI, shutdown circuit relays per DT.4,
 RSS integration). Those gate scrutineering and need mechanical and electrical students, not
 more software members.

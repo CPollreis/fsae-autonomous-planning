@@ -17,7 +17,7 @@ context:
   official_fsae_roadmap: >
     2026 Introduction (optional), 2027-2029 Expansion (optional), 2030 Full Integration.
     UMSAE targeting full DV capability by 2028, i.e. 2 years ahead of the 2030 mandate.
-  local_rules_corpus: /Users/calebpollreis/Developer/UMSAE/DV/timeline_research
+  local_rules_corpus: /Users/calebpollreis/Developer/UMSAE/DV/context
 
 items:
   # ---------- Category 1: European / veteran ramp case studies ----------
