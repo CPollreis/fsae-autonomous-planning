@@ -1,0 +1,249 @@
+{
+  "title": "UMSAE Driverless \u2014 24 Month Plan (June 2026 to June 2028)",
+  "basis": "Drafted from 14 benchmarked team ramps, 6 subsystem deep dives, and the 2026 FSAE Driverless rules corpus. Phase durations are anchored to the 9-14 month EV-retrofit precedent and to Winnipeg's outdoor testing windows.",
+  "target": "Pass Driverless Technical Inspection and the EBS test, and score all three DV dynamic events at FSAE 2028. Maximum 400 points (Design 150, Acceleration 75, Skidpad 75, Autocross 100).",
+  "governing_principle": "Reliability outranks speed. 150 of the 250 dynamic points are Starting and Completion points, which are entirely speed-independent. The plan optimises for passing scrutineering and finishing runs, and defers lap time to the final spring.",
+  "phases": [
+    {
+      "id": 0,
+      "name": "Concept and Organisation",
+      "window": "Jun - Aug 2026",
+      "months": "M0 - M3",
+      "status": "COMPLETE",
+      "season": "Summer, no vehicle work",
+      "delivered": [
+        "Programme concept",
+        "Org chart and role assignment (driverless_structure_v2.drawio)",
+        "DSO appointed (Caleb, DA.4.1)",
+        "Architecture research and monorepo study"
+      ],
+      "gate": "Team formed with named owners per pipeline stage."
+    },
+    {
+      "id": 1,
+      "name": "Foundations, Procurement and Architecture Freeze",
+      "window": "Sep - Nov 2026",
+      "months": "M3 - M6",
+      "status": "CURRENT",
+      "season": "Outdoor window closes end of October. Treat as bench-only.",
+      "why_now": "Every long-lead item ordered this phase arrives in time for the winter build. Anything ordered after December misses the summer 2027 testing window, which is the only full testing season before the target.",
+      "mechanical": [
+        "EBS architecture selection. UMSAE already has a working hydraulic service brake, so default to a pneumatic or pneumo-hydraulic intensifier design piggybacking on the existing hydraulics. Reserve electromechanical spring designs for teams wanting to avoid pressure-vessel certification overhead.",
+        "READ DT.3, DT.2 and the DSF.5 pressure-system documentation template BEFORE any CAD. The rules require every component to appear in the diagram with no simplification (DSF.5.1.1), so let the documentation requirement shape the design rather than follow it.",
+        "Size the actuator using the 200 ms actuation-time-derated force, NOT the static-rated datasheet force. One published thesis applies a 60% load factor because hydraulic actuators cannot deliver static-rated force inside the 200 ms window (DT.3.2.5.a). This is the single easiest way to design an EBS that fails its test.",
+        "ORDER the certified (PI/TPED) pressure tank and matching regulator EARLY. This is the number one EBS long-lead item: 4-8 weeks plus certification paperwork, and it carries a 5-year service-life expiry to plan around.",
+        "Steering actuator concept. Derive static AND dynamic steering torque from your own tie-rod offset, scrub radius and tire friction data, not a generic assumption, with an explicit safety factor plus a separate dynamic multiplier. Published worked example: 6.62 Nm static rising to 9.9 Nm then 18.15 Nm once factors are applied. Select the motor on CONTINUOUS duty-cycle capability, never peak torque.",
+        "Favour a back-drivable transmission (inline or rack-parallel ball screw, or a low-reduction quasi-direct-drive module). Back-drivability makes DT.2.2 decoupling and DT.2.1.1 manual steering nearly free. Only choose a high-reduction belt or gear drive if packaging forces it, and budget extra design time for the decoupling mechanism if so.",
+        "Preliminary EBS packaging study inside the Rollover Protection Envelope; sensor pod concept within the DT.2.3 envelope."
+      ],
+      "electrical": [
+        "ORDER the Remote Stop System immediately (Gross-Funk control box + vehicle module, SIL3, mandated hardware, RS.1.1). Nothing can drive autonomously without it",
+        "Order LiDAR, compute, IMU/GNSS. 4-12 week lead times, longer with customs",
+        "Shutdown circuit rework design: DS relay, Remote Stop relay plus bypass, EBS relay (DT.4)",
+        "DSMS, three DSSI, mission indicator and alert sound design (DT.1)"
+      ],
+      "software": [
+        "Freeze ROS2 distribution (Jazzy recommended, matches QUT's current stack)",
+        "Stand up eufs_sim plus Docker dev environment and CI from day one",
+        "Fork rather than write: study QUT-Motorsport/QUTMS_Driverless and AMZ fsd_skeleton",
+        "Perception prototype against simulated data"
+      ],
+      "documentation": [
+        "Start the DSF skeleton now. It documents the hardware, so it must be written alongside the build, not after it"
+      ],
+      "staffing": [
+        "CRITICAL: recruit a dedicated EBS / mechanical actuation owner and a dedicated DV electrical safety owner. Neither role currently exists on the org chart, and both gate scrutineering"
+      ],
+      "gate": "Architecture frozen, RSS and certified pressure tank ordered, all long-lead hardware ordered, simulator running a full sensor-to-control loop, EBS detailed design underway."
+    },
+    {
+      "id": 2,
+      "name": "Winter Build I \u2014 Safety Hardware",
+      "window": "Dec 2026 - Mar 2027",
+      "months": "M6 - M10",
+      "season": "Indoor only. This is what winter is for.",
+      "why_now": "UTFR validated their EBS on the bench roughly twelve months before achieving full autonomous navigation. The safety hardware must be finished before the testing window opens, not during it.",
+      "mechanical": [
+        "Build the EBS and its bench rig. Cross-team evidence puts concept-to-bench-validated at roughly 6-9 months, so starting detailed design in Phase 1 is what makes the March gate reachable at all.",
+        "Staged validation: bench, then circuit, then fault injection.",
+        "Prove average deceleration above 10 m/s2 and reaction time at or under 200 ms (DT.3.2.5). Target margin under the cap rather than just meeting it; one published design targets 150 ms.",
+        "Prove at least half performance under single failure (DT.3.2.5.c).",
+        "Integrate into the existing hydraulic circuit WITHOUT disturbing brake balance. Re-verify balance-bar repartition; the shuttle-valve plumbing step consumed significant design iteration for every team that documented it.",
+        "Build the two Deactivation Points: red handle, marked Brake Release, must work with no electrical power (DT.3.1.2).",
+        "Build and bench the steering actuator and decoupling mechanism.",
+        "Instrument BOTH the actuator and the rack/wheel with independent angle sensors from the start. Do not trust actuator-side encoder telemetry as a proxy for actual wheel angle."
+      ],
+      "electrical": [
+        "Shutdown circuit rework installed and requalified with the EV team",
+        "DSMS installed: blue circular area over 50 mm, labelled DS, lockout/tagout capable",
+        "Three DSSI installed and verified visible from any angle at 1.6 m within a 3 m radius",
+        "Alert sound: 1-5 Hz, 80-90 dBA at 2 m, 8-10 s duration",
+        "Sensor pod fabricated and wired"
+      ],
+      "software": [
+        "Perception: cone detection working in sim and against early real camera data",
+        "State estimation using ROS2 robot_localization. Do NOT write custom SLAM",
+        "Pure pursuit lateral control, longitudinal control",
+        "Hardcoded Acceleration path",
+        "Startup checks, continuous monitoring, and the DO.1.1 state machine",
+        "Inspection Mission (DO.1.3): spin drivetrain, sine-sweep steering, Finished after 25-30 s"
+      ],
+      "documentation": [
+        "DSF sections 2 through 8 drafted as the hardware is built"
+      ],
+      "gate": "EBS bench-validated to rules performance by end of March 2027. This is the single most important gate in the plan, and at roughly 6 months from Phase 1 concept it sits at the aggressive end of the 6-9 month cross-team range. Protect it: if EBS is the only thing slipping, pull people onto it from software."
+    },
+    {
+      "id": 3,
+      "name": "Integration and First Autonomous Motion",
+      "window": "Apr - Jun 2027",
+      "months": "M10 - M12",
+      "season": "Outdoor window opens in May.",
+      "mechanical": [
+        "EBS integrated on the vehicle",
+        "Steering actuator integrated, manual steering preserved with DSMS off (DT.2.1.1)"
+      ],
+      "electrical": [
+        "RSS integrated and range-tested, antenna mounted unobstructed",
+        "Full shutdown circuit chain verified end to end"
+      ],
+      "software": [
+        "Static vehicle tests: Inspection Mission on stands, wheels removed",
+        "Ready / Driving / Finished / Emergency state transitions verified",
+        "First autonomous motion, low speed, straight line"
+      ],
+      "gate": "FIRST AUTONOMOUS MOTION BY MAY 2027 (M11). The entire schedule is built backwards from this date. Slipping it forfeits the summer window and puts the June 2028 target at serious risk.",
+      "staffing": [
+        "Commit the summer testing crew before April. Summer has the best weather and the worst member availability due to co-ops and internships"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Summer Testing \u2014 THE CRITICAL WINDOW",
+      "window": "Jun - Oct 2027",
+      "months": "M12 - M16",
+      "season": "The only full outdoor testing season before the target. Roughly 24 usable weeks.",
+      "why_now": "Every benchmarked team that succeeded did the bulk of its learning in real-world testing. AMZ's published lesson is explicit: simulation makes testing efficient, it does not replace it.",
+      "activities": [
+        "Staged EBS test build-up in speed increments with a large runoff area. QUT Motorsport crashed their car during an EBS test in December 2024 and ended its competitive life. Do not attempt a full-speed EBS test as a first attempt",
+        "EBS test to rules conditions: 40 km/h minimum within 20 m, stop within 8.5 m (DI.2.2.2)",
+        "Acceleration mission complete and repeatable",
+        "Autocross mission: online cone mapping with no prior map (DD.1.2.4)",
+        "End-to-end latency profiling. AMZ's ~300 ms pipeline latency became their hard speed limiter",
+        "Record footage for the Vehicle Status Video",
+        "Full-pipeline integration testing regularly, not just subsystem testing"
+      ],
+      "target_volume": "25+ test days, 100+ logged autonomous hours. Monash ran 2-3 sessions per week during their season.",
+      "gate": "Acceleration and Autocross missions completed autonomously, EBS test passed under rules conditions."
+    },
+    {
+      "id": 5,
+      "name": "Winter Build II \u2014 Submissions and Refinement",
+      "window": "Nov 2027 - Mar 2028",
+      "months": "M17 - M21",
+      "season": "Indoor. Documentation and regression season.",
+      "documentation": [
+        "Driverless Notice of Intent submitted. Organisers may cap driverless entries and screen on this document, so submit early and make it strong",
+        "DSF final, all 8 sections, strict formatting: team name, university and car number on every page, numbered pages, vector or 300 dpi images, searchable text, consistent component naming across every document",
+        "Budget for two to three rejection and resubmission rounds. Penalties escalate per rejection",
+        "Vehicle Status Video submitted. This is the real hard deadline because it requires a demonstrably working autonomous car",
+        "Driverless Component Summary (DS.1.2) and Design Briefing DV System Summary (DS.2.2)"
+      ],
+      "engineering": [
+        "Regression-test everything learned over summer in simulation",
+        "Fix what broke during the testing season",
+        "Develop the Skidpad mission if capacity allows, treating it as a precision problem with hardcoded geometry",
+        "Design event preparation against the 14 published scoring areas"
+      ],
+      "gate": "All submissions in, no outstanding rejections."
+    },
+    {
+      "id": 6,
+      "name": "Final Validation and Competition",
+      "window": "Apr - Jun 2028",
+      "months": "M22 - M24",
+      "season": "Outdoor window reopens in April. Roughly 9 usable weeks. Too late to discover architectural problems.",
+      "activities": [
+        "Full dress rehearsals of all three missions",
+        "Driverless Technical Inspection dry runs against the DI.1.2 checklist: sensor data sheets, local legislation compliance documents, remote stop control, tools, rules question copies",
+        "EBS test rehearsal",
+        "Speed tuning. This is the last 100 points and the last thing to touch",
+        "Confirm no post-inspection modifications beyond those permitted by DI.3.1"
+      ],
+      "gate": "FSAE 2028, June. Compete."
+    }
+  ],
+  "descope_ladder": {
+    "principle": "If the schedule slips, shed scope in this order. Every step still banks points, because Starting and Completion points are speed-independent.",
+    "steps": [
+      "1. Drop speed tuning. A slow car that finishes scores the same 50 Starting plus Completion points per event as a fast one.",
+      "2. Drop Skidpad. It is the hardest event to complete cleanly and only worth 75. EUFS took four years to finish theirs.",
+      "3. Drop Autocross. Keep Acceleration, which is a hardcodable straight line.",
+      "4. Floor case: pass Driverless Inspection and the EBS test, complete one Acceleration run. That is 50 dynamic points plus up to 150 Design points, and it establishes the team for 2029 and 2030."
+    ],
+    "never_drop": "Driverless Technical Inspection and the EBS test. Without them the car cannot operate in Driverless Mode at all (DI.1.1) and the entire entry scores zero dynamic points."
+  },
+  "top_risks": [
+    {
+      "risk": "EBS slips past March 2027",
+      "impact": "Forfeits the summer 2027 testing window, which is the only full season. Likely fatal to the June 2028 target.",
+      "mitigation": "Assign a dedicated EBS owner in Phase 1. Build the bench rig before the car integration. Treat the March gate as immovable."
+    },
+    {
+      "risk": "EBS actuator sized from static-rated force",
+      "impact": "The system cannot deliver its rated force inside the 200 ms window and fails the EBS test, discovered only during dynamic testing when there is no time to redesign.",
+      "mitigation": "Apply an actuation-time derating (roughly 60% load factor) at the sizing stage. Bench-measure actual reaction time early rather than trusting datasheet values."
+    },
+    {
+      "risk": "Certified pressure tank procurement or paperwork slips",
+      "impact": "The EBS cannot be assembled or bench-validated, cascading into the March 2027 gate and the summer window.",
+      "mitigation": "Order in Phase 1 alongside the RSS. Budget 4-8 weeks plus certification overhead and check the 5-year service-life date on arrival."
+    },
+    {
+      "risk": "Steering coupling with backlash",
+      "impact": "Chalmers used a pneumatic clamp orthogonal to the column and only discovered the resulting steering-angle error, described as 'steering reduction', after a full season of on-track use.",
+      "mitigation": "Prefer a passively back-drivable ball screw or QDD module over an actively engaged clamp or clutch. Bench-test under load early, and measure wheel angle independently of the actuator encoder."
+    },
+    {
+      "risk": "No owner for EBS or DV electrical safety",
+      "impact": "A software-only team produces a car that drives in simulation and fails scrutineering.",
+      "mitigation": "Recruit mechanical and electrical students now, in Phase 1."
+    },
+    {
+      "risk": "Resource contention with the EV programme",
+      "impact": "UTFR's FSAE Michigan overall finish fell from 5th to 51st across 2023-2026 while pushing driverless and 4WD. The DV programme can damage EV results.",
+      "mitigation": "Agree vehicle access and shared-member allocation with the EV team explicitly and in writing, before the winter build."
+    },
+    {
+      "risk": "Custom software detours",
+      "impact": "QUT lost roughly two seasons to custom EKF-SLAM before replacing it with slam_toolbox for 93% better mapping accuracy.",
+      "mitigation": "Fork proven stacks. Ban custom SLAM. Use robot_localization first."
+    },
+    {
+      "risk": "DSF underestimated",
+      "impact": "A KTH master's thesis spent a full 30-credit semester reaching only ISO 26262 Concept Phase for the EBS alone. Rejections carry escalating point penalties.",
+      "mitigation": "Write the DSF alongside the hardware through Phase 2, not in Phase 5."
+    },
+    {
+      "risk": "Summer 2027 crew never materialises",
+      "impact": "The critical window passes with nobody in Winnipeg to use it.",
+      "mitigation": "Commit named people before April 2027. Consider paid or for-credit summer positions."
+    },
+    {
+      "risk": "EBS test crash",
+      "impact": "QUT ended a vehicle's competitive life this way in December 2024.",
+      "mitigation": "Staged build-up: bench, circuit, fault injection, then dynamic in speed increments with generous runoff."
+    }
+  ],
+  "immediate_actions_next_30_days": [
+    "Order the Remote Stop System (Gross-Funk). Mandated hardware, no substitute permitted, and it gates all autonomous operation.",
+    "Order the certified (PI/TPED) pressure tank and regulator for the EBS. Long lead plus certification paperwork, and it gates the whole March 2027 EBS gate.",
+    "Recruit an EBS / mechanical actuation owner and a DV electrical safety owner.",
+    "Read DT.3 and the DSF.5 pressure-system template before starting EBS CAD, so the documentation requirement shapes the design.",
+    "Select the EBS architecture (pneumatic vs hydraulic) and start the detailed design.",
+    "Order LiDAR, compute and IMU/GNSS. Note Velodyne Puck is discontinued and Jetson prices rose up to 101% in July 2026.",
+    "Stand up eufs_sim, Docker and CI so software can progress all winter without the car.",
+    "Open the DSF document and start filling sections as designs are made.",
+    "Agree vehicle access terms with the EV team for the winter build and summer 2027 testing."
+  ]
+}

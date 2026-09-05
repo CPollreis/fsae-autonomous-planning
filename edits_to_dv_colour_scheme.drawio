@@ -1,0 +1,198 @@
+<mxfile host="app.diagrams.net" agent="Claude Code">
+  <diagram name="Software Architecture" id="dv-sw-arch-1">
+    <mxGraphModel dx="1386" dy="1064" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="realsense_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry height="190" width="380" x="800" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="lidarws_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry height="190" width="380" x="1180" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="mcu_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#a9c4e8;" value="" vertex="1">
+          <mxGeometry height="380" width="740" x="60" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="perception_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe4d5;strokeColor=#eec2a5;" value="" vertex="1">
+          <mxGeometry height="380" width="760" x="800" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="slam_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0da;strokeColor=#c2e0ac;" value="" vertex="1">
+          <mxGeometry height="280" width="760" x="800" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="pnc_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6dcf5;strokeColor=#cbb3e8;" value="" vertex="1">
+          <mxGeometry height="380" width="760" x="800" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="realsense_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="&lt;div&gt;camera_ws&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="800" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="lidarws_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="lidar_ws" vertex="1">
+          <mxGeometry height="40" width="110" x="1180" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="mcu_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c9ce8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="MCU Interface" vertex="1">
+          <mxGeometry height="40" width="260" x="60" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="perception_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c0603a;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="perception_ws" vertex="1">
+          <mxGeometry height="40" width="240" x="800" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="slam_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8fbf6a;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="slam_ws" vertex="1">
+          <mxGeometry height="40" width="180" x="800" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="pnc_tab" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8e6bbf;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="pnc_ws" vertex="1">
+          <mxGeometry height="40" width="160" x="800" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="steer_angle" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="Steering Angle" vertex="1">
+          <mxGeometry height="100" width="220" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="imu" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="IMU" vertex="1">
+          <mxGeometry height="100" width="180" x="300" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wheel_speeds" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="Wheel Speeds" vertex="1">
+          <mxGeometry height="100" width="220" x="500" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dJQ5yjRYCxSPF750rMz8-5" edge="1" parent="1" source="camera" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="realsense_bg" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="camera" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="Camera" vertex="1">
+          <mxGeometry height="120" width="200" x="890" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dJQ5yjRYCxSPF750rMz8-6" edge="1" parent="1" source="lidar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="lidarws_bg" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lidar" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;" value="LiDAR" vertex="1">
+          <mxGeometry height="120" width="200" x="1270" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="realsense2_camera" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="LUCID Driver /&amp;nbsp;arena_sdk" vertex="1">
+          <mxGeometry height="70" width="280" x="850" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="rslidar_sdk" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="rslidar_sdk" vertex="1">
+          <mxGeometry height="70" width="280" x="1230" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="odometry" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4472c4;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="odometry" vertex="1">
+          <mxGeometry height="70" width="220" x="280" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="dJQ5yjRYCxSPF750rMz8-1" edge="1" parent="1" source="throttle_control" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="motor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="throttle_control" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4472c4;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="throttle_control" vertex="1">
+          <mxGeometry height="70" width="220" x="140" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="dJQ5yjRYCxSPF750rMz8-7" edge="1" parent="1" source="steer_control" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="steering_servo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="790" />
+              <mxPoint x="560" y="790" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="steer_control" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4472c4;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="steer_control" vertex="1">
+          <mxGeometry height="70" width="220" x="460" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="sensor_fusion" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8825a;fontColor=#000000;strokeColor=none;fontSize=14;fontStyle=1;" value="sensor_fusion" vertex="1">
+          <mxGeometry height="70" width="280" x="1080" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="initial_pose_guess" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a8db6f;fontColor=#000000;strokeColor=none;fontSize=14;fontStyle=1;" value="Initial Pose Guess" vertex="1">
+          <mxGeometry height="60" width="260" x="1000" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="slam" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a8db6f;fontColor=#000000;strokeColor=none;fontSize=14;fontStyle=1;" value="slam" vertex="1">
+          <mxGeometry height="60" width="220" x="1260" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="global_path" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a4fa8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="global_path" vertex="1">
+          <mxGeometry height="70" width="240" x="900" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="local_path" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a4fa8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="local_path" vertex="1">
+          <mxGeometry height="70" width="240" x="1300" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="mpc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a4fa8;fontColor=#ffffff;strokeColor=none;fontSize=14;fontStyle=1;" value="mpc" vertex="1">
+          <mxGeometry height="70" width="240" x="1120" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="brakes" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;fontSize=14;" value="Brakes" vertex="1">
+          <mxGeometry height="110" width="160" x="60" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="motor" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;fontSize=14;" value="Motor" vertex="1">
+          <mxGeometry height="110" width="160" x="280" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="steering_servo" parent="1" style="shape=triangle;direction=south;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;fontSize=14;" value="&lt;div&gt;Steering&amp;nbsp;&lt;/div&gt;&lt;div&gt;Servo&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="160" x="480" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="steer_angle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.3;entryY=0;" target="odometry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="imu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="odometry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="wheel_speeds" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#999999;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.7;entryY=0;" target="odometry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="throttle_control" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="770" />
+              <mxPoint x="136" y="770" />
+            </Array>
+            <mxPoint x="100.00000000000045" y="695.0000000000002" as="sourcePoint" />
+            <mxPoint x="136" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="realsense2_camera" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;entryX=0.3;entryY=0;exitX=0.473;exitY=0.979;exitDx=0;exitDy=0;exitPerimeter=0;" target="sensor_fusion" value="/color/image_raw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="982.38" y="455" />
+              <mxPoint x="1164" y="455" />
+            </Array>
+            <mxPoint x="980" y="350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="rslidar_sdk" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.8;entryY=0;exitDx=0;exitDy=0;" target="sensor_fusion" value="/rslidar_points">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1370" y="455" />
+              <mxPoint x="1304" y="455" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="sensor_fusion" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="slam" value="/perception/cones">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="odometry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" target="initial_pose_guess" value="/odometry/steer&#xa;/odometry/imu&#xa;/odometry/wss">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="odometry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;exitX=1;exitY=0.8;entryX=0;entryY=0.3;" target="mpc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="slam" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.3;exitY=0;entryX=0.5;entryY=1;" target="initial_pose_guess" value="/slam/map/global">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="initial_pose_guess" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;exitX=0.3;exitY=1;entryX=0.3;entryY=0;" target="global_path">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="slam" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.7;exitY=1;entryX=0.5;entryY=0;" target="local_path" value="/slam/map/local">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="local_path" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.3;entryX=1;entryY=0.7;" target="slam" value="/slam/state">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="global_path" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.7;exitY=0;entryX=0.2;entryY=1;" target="slam" value="/path/finished">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="global_path" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.2;entryY=0;" target="mpc" value="/path/global">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="local_path" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" target="mpc" value="/path/local">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=1;entryX=1;entryY=1;" value="/control/throttle">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1030" y="1560" as="sourcePoint" />
+            <mxPoint x="270" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7b4b3a;endArrow=block;endFill=1;strokeWidth=3;fontColor=#000000;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.7;entryX=0.5;entryY=1;" value="/control/steer">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1210" y="1529.0000000000005" as="sourcePoint" />
+            <mxPoint x="660" y="750.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

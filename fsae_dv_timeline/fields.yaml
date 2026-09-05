@@ -1,0 +1,208 @@
+# Field definitions for FSAE Driverless ramp-up timeline research.
+#
+# IMPORTANT FOR RESEARCH AGENTS:
+#   * Emit EVERY field key below in your JSON, even when a field does not apply.
+#   * Use the string "N/A" for fields that genuinely do not apply (e.g. team-specific
+#     fields on a "Subsystem Deep Dive" item, or subsystem fields on a team item).
+#   * Use "[uncertain]" prefix on any value you could not confirm from a source.
+#   * Prefer CONCRETE DATES, DURATIONS IN MONTHS, COSTS IN USD, and LEAD TIMES IN WEEKS.
+#     A timeline is only useful if it has numbers. Vague prose is low value here.
+#   * Always cite. Every non-obvious claim needs a URL in source_urls.
+
+field_categories:
+
+  - category: basic_info
+    fields:
+      - name: item_name
+        description: Canonical name of the team or subsystem topic researched.
+        required: true
+      - name: item_category
+        description: One of Veteran European, Fast Ramp, North American Peer, Subsystem Deep Dive.
+        required: true
+      - name: university
+        description: University or institution. "N/A" for subsystem items.
+      - name: country
+        description: Country of the team. "N/A" for subsystem items.
+      - name: competition_series
+        description: Which series they compete in (FSG, FSAE, FS UK, FSEast, FS Czech, etc.).
+      - name: summary
+        description: 3-5 sentence executive summary of the ramp story or the subsystem landscape.
+        required: true
+      - name: source_urls
+        description: Array of URLs used. Include team sites, papers, theses, GitHub repos, YouTube, FS results DBs.
+        required: true
+      - name: evidence_quality
+        description: >
+          One of "strong" (primary sources, dated), "moderate" (secondary/indirect),
+          "weak" (inference only). Be honest; this drives how much we trust the timeline.
+        required: true
+
+  - category: history
+    fields:
+      - name: dv_program_start
+        description: Year/month the driverless program was first conceived or formally started.
+        required: true
+      - name: first_autonomous_run_date
+        description: Date/season of first autonomous run of any kind (even a parking-lot straight line).
+      - name: first_dv_competition
+        description: First competition where they entered a driverless class, with year.
+        required: true
+      - name: months_concept_to_first_autonomous_run
+        description: Integer months from program start to first autonomous movement. Numeric if possible.
+        required: true
+      - name: months_concept_to_first_competition
+        description: Integer months from program start to first driverless competition entry.
+        required: true
+      - name: months_to_first_scoring_run
+        description: Integer months from program start to completing a scored DV dynamic event.
+      - name: year_by_year_timeline
+        description: >
+          Array of objects, one per season, each with: year, phase_name, mechanical_focus,
+          electrical_focus, software_focus, milestone_achieved, competition_result.
+          This is THE most important field. Be specific and dated.
+        required: true
+      - name: ramp_phases
+        description: Named phases the team used (e.g. "sim only", "mule testing", "full vehicle") with durations.
+      - name: what_slipped
+        description: What fell behind schedule and why. Schedule slips are the most valuable signal here.
+        required: true
+      - name: platform_prerequisites
+        description: Whether they needed an EV conversion first, and how long that took.
+
+  - category: technical_features
+    fields:
+      # --- mechanical ---
+      - name: ebs_design
+        description: Emergency Brake System architecture (pneumatic/hydraulic/electromechanical), actuator, accumulator, and how it meets DT.3.2.
+        required: true
+      - name: ebs_development_duration
+        description: Months from EBS concept to passing an EBS/brake test.
+      - name: ebs_cost_estimate
+        description: Approximate cost in USD to build the EBS.
+      - name: steering_actuation
+        description: Steering actuator type, motor, gearing, mounting location, and decoupling approach per DT.2.2.
+        required: true
+      - name: brake_actuation
+        description: Service/driverless brake actuation for normal autonomous driving (distinct from EBS).
+      - name: sensor_mounting_packaging
+        description: How sensors were mounted within the DT.2.3 envelope; main pod, roll hoop, nose. Packaging/aero conflicts.
+      - name: mass_added
+        description: Mass added to the vehicle by the driverless system, in kg.
+      - name: chassis_impact
+        description: Chassis, bodywork, or suspension changes required by driverless integration.
+      # --- electrical ---
+      - name: compute_platform
+        description: Onboard compute (Jetson model, x86 mini-PC, etc.), plus any secondary safety MCU.
+        required: true
+      - name: sensor_suite
+        description: "Full sensor list with models: LiDAR, cameras, IMU, GNSS/RTK, wheel speed, steering encoder."
+        required: true
+      - name: power_budget
+        description: Driverless system power draw in watts and how it is supplied from the LV system.
+      - name: shutdown_circuit_implementation
+        description: How the DV relays were integrated into the shutdown circuit (DS relay, remote stop relay, EBS relay per DT.4).
+      - name: remote_stop_system
+        description: Remote emergency stop / remote stop system used, sourcing, and integration notes.
+      - name: status_indicators
+        description: DSSI/ASSI and alert sound implementation per DT.1.3 and DT.1.4.
+      - name: custom_pcbs
+        description: Custom PCBs developed for the driverless system and their design/fab/bring-up duration.
+      # --- software ---
+      - name: software_stack
+        description: Languages, frameworks, middleware, and overall architecture.
+        required: true
+      - name: ros_version
+        description: ROS/ROS2 distribution used, or "none" if custom middleware.
+      - name: perception_approach
+        description: Cone detection method (YOLO variant, classical LiDAR clustering), sensor fusion strategy, range achieved.
+        required: true
+      - name: slam_localization_approach
+        description: SLAM/state estimation approach (GraphSLAM, EKF, FastSLAM, GTSAM factor graph), and mapping representation.
+        required: true
+      - name: planning_approach
+        description: Path generation (Delaunay triangulation, midline), speed profiling, and re-planning strategy.
+        required: true
+      - name: control_approach
+        description: Lateral and longitudinal control (pure pursuit, Stanley, MPC) and tuning approach.
+        required: true
+      - name: simulation_tooling
+        description: Simulators used (eufs_sim, FSDS, Gazebo, CARLA, custom) and role in development.
+        required: true
+      - name: ci_cd_testing
+        description: CI/CD, unit/integration testing, HIL benches, and regression suites.
+      - name: data_logging
+        description: Data logging and analysis stack (rosbag, MCAP, Foxglove, custom telemetry).
+      - name: open_source_repos
+        description: Public repository URLs, if any, with a note on how useful they are as a reference.
+
+  - category: milestone_significance
+    fields:
+      - name: critical_path_items
+        description: What actually gated their schedule. Name the top 3 critical path items.
+        required: true
+      - name: long_lead_procurement
+        description: Components with long lead times (LiDAR, actuators, compute) and the lead times in weeks.
+        required: true
+      - name: first_static_test_date
+        description: When the DV system was first tested statically on the car (jacked up / stationary).
+      - name: first_dynamic_test_date
+        description: When the car first moved under autonomous control.
+      - name: testing_hours_before_first_comp
+        description: Estimated hours or number of test days logged before first driverless competition.
+      - name: validation_strategy
+        description: How they proved the system was safe and ready, including EBS validation.
+
+  - category: competition_ecosystem
+    fields:
+      - name: rules_compliance_challenges
+        description: Which rules were hardest to satisfy and why.
+        required: true
+      - name: tech_inspection_experience
+        description: Did they pass driverless tech inspection first try? What failed and why?
+        required: true
+      - name: ebs_test_experience
+        description: Experience with the emergency brake system test specifically.
+      - name: documentation_burden
+        description: Effort required for DSF/ASF, design reports, status videos, and when they were due.
+
+  - category: performance_metrics
+    fields:
+      - name: dv_event_results
+        description: Driverless event results by year (events completed, points, placings).
+        required: true
+      - name: autonomous_speeds_achieved
+        description: Top speed and typical speeds achieved autonomously, in km/h or m/s.
+      - name: ebs_deceleration_achieved
+        description: Measured EBS deceleration in m/s2 and reaction time in ms.
+      - name: perception_range_achieved
+        description: Reliable cone detection range in meters, by sensor.
+      - name: reliability_notes
+        description: DNFs, cone strikes, off-course events, and their root causes.
+
+  - category: lessons_learned
+    fields:
+      - name: top_mistakes
+        description: Biggest mistakes made. Be specific and blunt. This is high value.
+        required: true
+      - name: advice_for_new_teams
+        description: Explicit advice this team gave to new driverless teams, quoted where possible.
+        required: true
+      - name: team_structure_dv
+        description: How the driverless subteam was organized, roles, and headcount by year.
+        required: true
+      - name: recruiting_and_knowledge_transfer
+        description: How they handled year-over-year turnover and onboarding, a chronic FS problem.
+      - name: budget_estimate
+        description: Total driverless program cost in USD, and per-year breakdown if available.
+      - name: recommended_sequence
+        description: >
+          If starting over, what order would they build things in? Synthesize an ordered list
+          even if it must be inferred from their history.
+        required: true
+      - name: applicability_to_24_month_ramp
+        description: >
+          Assessment of what a team with a running EV, ~9 software-focused members, and a
+          24-month window (June 2026 to June 2028) should copy or avoid from this case.
+        required: true
+
+uncertain: []

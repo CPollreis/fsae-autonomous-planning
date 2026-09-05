@@ -1,0 +1,203 @@
+{
+  "basic_info": {
+    "item_name": "KA-RaceIng (Karlsruhe Institute of Technology)",
+    "item_category": "Veteran European",
+    "university": "Karlsruhe Institute of Technology (KIT)",
+    "country": "Germany",
+    "competition_series": "FSG (Formula Student Germany) - primary; also FS Spain (FSS/FSE), FS East, FS Czech",
+    "summary": "KA-RaceIng e.V., KIT's Formula Student team (competing since 2006, ~85-100 active members across its combustion, electric, and driverless sub-teams), entered the Formula Student Driverless (FSD) class in its debut 2017 season by retrofitting the previous year's electric racecar (KIT15e) into the KIT17d, finishing 2nd overall at FSG 2017. The team has published detailed, heavily cited technical papers on its software stack (e.g. 'The Autonomous Racing Software Stack of the KIT19d', arXiv 2010.02828) that document a deliberately GPU-free, commodity-CPU perception pipeline, a custom multi-LiDAR synchronization ECU, an EKF-based localization/mapping approach, and a linear time-varying MPC steering controller. By 2019 the KIT19d won three of four dynamic disciplines at FSG (Autocross, Trackdrive, Skidpad) and took first overall at FS Spain, and the team has remained a consistent podium/near-podium DV contender through 2026 (2nd at FSG 2025, 6th at FSG 2026). KA-RaceIng's own retrospective lessons emphasize agile (SCRUM-style) development, disciplined git/code-review workflow, and preferring recorded-data replay over full sensor simulation for perception/localization development.",
+    "source_urls": [
+      "https://arxiv.org/abs/2010.02828",
+      "https://arxiv.org/pdf/2010.02828",
+      "https://www.kit.edu/kit/english/21609.php",
+      "https://www.formulastudent.de/teams/fsd/details/tid/786",
+      "https://www.tq-group.com/en/products/tq-robodrive/ka-raceing-success-story/",
+      "https://www.ka-raceing.de/",
+      "https://github.com/ka-raceing",
+      "https://www.ronalgroup.com/en/ronal-group-supports-team-ka-raceing/",
+      "https://solutions.mccsemi.com/news/reference-board-emergency-brake-system-for-autonomous-ev-racing"
+    ],
+    "evidence_quality": "strong"
+  },
+  "history": {
+    "dv_program_start": "[uncertain] Decision made around 2016 to enter the newly announced FSD class for 2017; the KIT17d build itself (retrofit of the KIT15e) was underway by early 2017.",
+    "first_autonomous_run_date": "Late April 2017 - team targeted sensor-validation test drives 'by end of April 2017'; public rollout/maiden-run event ('Jungfernfahrt') held 27 April 2017 at KIT's Audimax alongside the KIT17c (combustion) and KIT17e (electric) cars.",
+    "first_dv_competition": "Formula Student Germany (FSG) 2017 - KIT17d finished 2nd overall in the Driverless class",
+    "months_concept_to_first_autonomous_run": "[uncertain] Roughly 3-4 months if the program start is counted from ~Jan 2017; exact concept-start date not confirmed",
+    "months_concept_to_first_competition": "[uncertain] Roughly 7-8 months from an assumed early-2017 start to the August 2017 FSG entry",
+    "months_to_first_scoring_run": "[uncertain] Same ballpark as months_concept_to_first_competition - KIT17d scored (2nd place) on its first competition entry",
+    "year_by_year_timeline": [
+      {
+        "year": 2017,
+        "phase_name": "First driverless build (KIT17d) - EV retrofit",
+        "mechanical_focus": "KIT17d was the prior year's electric racecar, KIT15e, retrofitted rather than a new chassis; fully redundant pneumatic/hydraulic Emergency Brake System (EBS) added; steer-by-wire steering system added",
+        "electrical_focus": "Nvidia-powered autonomous system control unit (per team-reported summary); GPS/navigation system added for continuous positioning",
+        "software_focus": "Cameras and laser scanners used to detect track-boundary cones ('Wir werden die Pylonen mittels Kamera und Laserscannern orten' - team technical lead, KIT press release)",
+        "milestone_achieved": "First rollout/maiden run 27 April 2017; first FSD competition entry",
+        "competition_result": "FSG 2017: 2nd overall in Driverless class"
+      },
+      {
+        "year": 2018,
+        "phase_name": "Second-generation car (KIT18d)",
+        "mechanical_focus": "[uncertain] Dedicated iteration of the EBS/steering hardware; specifics not found in accessible sources",
+        "electrical_focus": "[uncertain] Perception hardware later described as KIT19d's 'predecessor' with roughly 1/3 the detection range of KIT19d (~13.5m implied by the paper's stated 210% range increase for KIT19d)",
+        "software_focus": "[uncertain] Not detailed in accessible sources; likely Stanley-controller-based lateral control (KIT19d paper states MPC replaced 'a Stanley controller... used in previous years')",
+        "milestone_achieved": "Achieved a podium finish at a second FSD event",
+        "competition_result": "FSG 2018: 2nd overall Driverless; FS East 2018: 1st overall Driverless"
+      },
+      {
+        "year": 2019,
+        "phase_name": "KIT19d - major perception/control upgrade",
+        "mechanical_focus": "Base vehicle KIT15e-derived platform continued; EBS, four LiDARs, three cameras, and a steering actuator integrated onto the autonomous control unit (ACU)",
+        "electrical_focus": "ACU built from commodity PC hardware (Intel i7-9700K, ASRock X370 Mini-ITX, 32GB DDR4 RAM, Samsung 970 EVO SSD, CAN interface) deliberately avoiding a dedicated GPU/TPU; custom 'sync-ECU' built in-house to timestamp/synchronize the 4 LiDARs via a PTP-like protocol over CAN, doubling effective sample rate in overlap regions",
+        "software_focus": "Ubuntu 18.04 / ROS Melodic; DBSCAN-based LiDAR clustering + adapted MobileNetV2 CNN for camera-based landmark validation/color classification; EKF-based pose tracking (not full SLAM state); JCBB data association (upgraded from a nearest-neighbor approach for robustness to tight, ~30cm cone spacing); new linear time-varying MPC lateral controller replacing the previous Stanley controller; feedforward PI longitudinal control",
+        "milestone_achieved": "42m perception range (a 210% increase over KIT19d's predecessor); FSG19 Autocross-without-prior-knowledge lap time more than 4x faster than the equivalent 2018 time on the same hardware setup, showing the gain was primarily software/algorithmic",
+        "competition_result": "FSG 2019: won 3 of 4 dynamic disciplines - Skidpad (6.671s+0.20 penalty), Autocross w/o prior knowledge (28.186s, 9% faster than 2nd place), Trackdrive (244.90s+4.00 penalty); DNF in Acceleration. FS Spain 2019: 1st place overall."
+      },
+      {
+        "year": 2021,
+        "phase_name": "Continued competitiveness",
+        "mechanical_focus": "[uncertain] Not detailed in accessible sources",
+        "electrical_focus": "[uncertain] Not detailed in accessible sources",
+        "software_focus": "[uncertain] Not detailed in accessible sources",
+        "milestone_achieved": "Swept 1st place across three different FSD events in one season",
+        "competition_result": "1st place overall Driverless at FSG, FS East, and FS Czech 2021"
+      },
+      {
+        "year": 2022,
+        "phase_name": "Continued competitiveness",
+        "mechanical_focus": "[uncertain] Not detailed in accessible sources",
+        "electrical_focus": "[uncertain] Not detailed in accessible sources",
+        "software_focus": "[uncertain] Not detailed in accessible sources",
+        "milestone_achieved": "Strong multi-event podium season",
+        "competition_result": "FS East 2022: 1st Driverless (956.27 pts); FS Czech 2022: 2nd Driverless (560.57 pts)"
+      },
+      {
+        "year": 2023,
+        "phase_name": "Mid-pack season",
+        "mechanical_focus": "[uncertain] Not detailed in accessible sources",
+        "electrical_focus": "[uncertain] Not detailed in accessible sources",
+        "software_focus": "[uncertain] Not detailed in accessible sources",
+        "milestone_achieved": "N/A",
+        "competition_result": "FSG 2023: 2nd Driverless (304.05 pts); FS East 2023: 4th Driverless (660.71 pts)"
+      },
+      {
+        "year": 2024,
+        "phase_name": "Rebuilding season",
+        "mechanical_focus": "[uncertain] Not detailed in accessible sources",
+        "electrical_focus": "[uncertain] Not detailed in accessible sources",
+        "software_focus": "[uncertain] Not detailed in accessible sources",
+        "milestone_achieved": "N/A",
+        "competition_result": "FSG 2024: 5th Driverless (354.32 pts); FS East 2024: 2nd Driverless (859.02 pts)"
+      },
+      {
+        "year": 2025,
+        "phase_name": "Steering actuator upgrade with TQ-RoboDrive",
+        "mechanical_focus": "TQ-RoboDrive ILM-E70x10 frameless motor + harmonic drive gearbox adopted for the steering actuator - compact, low-weight, high-dynamics, described by the team as 'virtually maintenance-free' since adoption",
+        "electrical_focus": "[uncertain] Not further detailed in accessible sources",
+        "software_focus": "[uncertain] Not further detailed in accessible sources",
+        "milestone_achieved": "Fastest autonomous vehicle of the 2025 Formula Student season",
+        "competition_result": "FSG 2025: 2nd overall Driverless (547.47 pts); FS Czech 2025: 3rd overall Driverless (631.47 pts); 10 total podium finishes across all events/classes that season"
+      },
+      {
+        "year": 2026,
+        "phase_name": "Current season",
+        "mechanical_focus": "[uncertain] Not detailed in accessible sources",
+        "electrical_focus": "[uncertain] Not detailed in accessible sources",
+        "software_focus": "[uncertain] Not detailed in accessible sources",
+        "milestone_achieved": "N/A",
+        "competition_result": "FSG 2026: 6th Driverless (318.32 pts); FS Czech 2026: 4th Driverless (435.92 pts)"
+      }
+    ],
+    "ramp_phases": "[uncertain] No explicitly named ramp phases were found. Inferred pattern from the team's own history: (1) retrofit the prior year's proven EV chassis rather than building a dedicated DV car (KIT17d = converted KIT15e), (2) each subsequent season builds a new, purpose-built driverless car alongside separate combustion and electric entries under a 'one team, multiple cars' model, (3) software/algorithm improvements applied incrementally each season on top of the previous year's stack rather than full rewrites (explicitly stated in the KIT19d paper).",
+    "what_slipped": "[uncertain] No explicit 'what fell behind schedule' narrative was found in accessible sources. The clearest available signal is indirect: the KIT19d paper notes that in 2018 the Trackdrive-without-prior-knowledge time was equivalent to what became the 2019 Autocross benchmark, and that the 2019 no-prior-knowledge Autocross time was 'more than four times lower' than the 2018 figure on the *same hardware setup* - implying that in 2018 the software/algorithm side (not hardware) was the lagging, underperforming element relative to what the hardware could support.",
+    "platform_prerequisites": "Yes. KIT17d, the team's first driverless car, was created by retrofitting the previous season's electric racecar, KIT15e, with an EBS, steering actuator, and sensor/compute suite rather than designing a dedicated DV chassis from scratch - directly mirroring the situation of a team that already has a running EV platform."
+  },
+  "technical_features": {
+    "ebs_design": "Fully redundant pneumatic/hydraulic Emergency Brake System (EBS), confirmed present on both the original KIT17d (2017) and later KIT19d/subsequent cars, satisfying DT.3.2 dual-circuit redundancy requirements. [uncertain] Specific accumulator pressure, actuator model, and cylinder specifications were not disclosed in accessible sources; the team has also produced sponsor-content video material ('Inside the EBS That Keeps Driverless Race Cars Safe') with MCC Semi on EBS electronics (Zener/TVS diodes, Schottky diodes, MOSFETs for the control circuitry) but without disclosing braking-actuator performance numbers.",
+    "ebs_development_duration": "[uncertain] Not disclosed in accessible sources",
+    "ebs_cost_estimate": "[uncertain] Not disclosed in accessible sources",
+    "steering_actuation": "KIT17d (2017) used a steer-by-wire steering system (no further numeric specs found for this generation). By the 2025 season the steering actuator had evolved to a TQ-RoboDrive ILM-E70x10 frameless motor combined with a harmonic drive gearbox, selected for minimal size/weight, high dynamics, and reliable/reproducible controllability; the team credits it with making the steering system 'considerably more compact' and 'virtually maintenance-free.' [uncertain: intermediate-generation (2018-2024) actuator specs not found]",
+    "brake_actuation": "[uncertain] No source distinctly separates a non-emergency 'service' autonomous brake actuation system from the EBS; not detailed in accessible sources.",
+    "sensor_mounting_packaging": "KIT17d (2017): 3 cameras + 2 laser scanners. KIT19d (2019): forward- and rearward-facing camera/LiDAR coverage from 4 LiDARs (left, right, rear, center) and 3 cameras (left, right, rear), synchronized via a custom sync-ECU, giving ~42m combined detection range (Fig. 3 of the KIT19d paper shows the resulting overlapping FoV pattern). More recent cars (per team reporting) use a 360° LiDAR arrangement plus 3 cameras with ~40m range.",
+    "mass_added": "[uncertain] Not disclosed numerically in accessible sources",
+    "chassis_impact": "[uncertain] Not disclosed in accessible sources beyond the KIT17d being a direct retrofit of the KIT15e chassis (implying sensor/actuator mounts were added to an existing structure rather than a redesigned chassis)",
+    "compute_platform": "KIT19d Autonomous Control Unit (ACU): Intel Core i7-9700K CPU, ASRock X370 Mini-ITX mainboard, 32GB DDR4 RAM, Samsung 970 EVO NVMe SSD, CAN interface to the Main Control Unit (MCU); explicitly no dedicated GPU or TPU required - all perception inference runs on the CPU. Three cameras connect via USB 3.0; four LiDARs connect via Ethernet. A separate, purpose-built 'sync-ECU' generates a common synchronization pulse and adapted PTP-over-CAN time base for the LiDARs. This is a shift from the KIT17d generation, which reportedly used an 'Nvidia-powered' (GPU-based) autonomous system control unit.",
+    "sensor_suite": "KIT19d: 4x LiDAR (left, right, rear, center - specific model not disclosed in accessible sources), 3x monocular camera (left, right, rear), IMU, wheel-speed sensors/odometry feeding rear-wheel-speed + yaw-rate inputs directly into the EKF prediction step. Earlier KIT17d: 3 cameras + 2 laser scanners + GPS/navigation system.",
+    "power_budget": "[uncertain] Not disclosed in accessible sources",
+    "shutdown_circuit_implementation": "[uncertain] Not disclosed with specific relay-wiring detail beyond the general architecture: the MCU 'implements all safety checks necessary for rules compliant operation' and interfaces to the EBS, consistent with DT.4 relay requirements, but no team-specific wiring/relay model detail was found.",
+    "remote_stop_system": "[uncertain] Vendor/model not disclosed in accessible sources",
+    "status_indicators": "[uncertain] Not disclosed in accessible sources",
+    "custom_pcbs": "Custom 'sync-ECU' developed in-house specifically to provide a common, precisely synchronized time base across the four LiDARs (adapted Precision Time Protocol over CAN), enabling asynchronous triggering that effectively doubles the sample rate in overlapping FoV regions. Development duration/cost not disclosed. [uncertain on duration/cost]",
+    "software_stack": "ROS-based Autonomous Control Unit (ACU) running on Ubuntu 18.04 with ROS Melodic. Modular pipeline: perception -> localization & mapping -> trajectory planning -> controllers, all inside the ACU/ROS boundary; a separate Main Control Unit (MCU) provides the base-vehicle interface, handles all low-level features (brake lights, fans), performs rules-compliance safety checks, and forwards torque/steering requests to the inverter and steering controller; the sync-ECU sits alongside as a dedicated timing peripheral. Development process explicitly used SCRUM elements (weekly reviews) adapted for the limited time/team-size constraints typical of Formula Student.",
+    "ros_version": "ROS Melodic on Ubuntu 18.04 (KIT19d, 2019)",
+    "perception_approach": "LiDAR-primary landmark generation: point clouds from all 4 LiDARs are merged (using the sync-ECU's common time base), then DBSCAN density-based clustering extracts cone-sized clusters (filtered by expected cluster variance/size and inter-cluster neighborhood spacing, ~3.5m separation assumption) to produce landmark position proposals. These proposals are then validated in camera image space via a projected bounding box (using an anisotropic-scaling approximation calibrated per camera) that is corrected using the landmark's estimated color region, then classified into 5 classes (small blue/yellow/orange cone, big orange cone, false-positive/none) using an adapted, further-optimized MobileNetV2 CNN, trained via transfer learning from ImageNet weights on a semi-manually annotated KIT-collected dataset. This CPU-only design was a deliberate efficiency choice. Achieved detection range ~42m, a 210% increase over the prior-generation car.",
+    "slam_localization_approach": "Not a full SLAM formulation - the team explicitly decoupled localization from full landmark-state SLAM. An Extended Kalman Filter (EKF) tracks only vehicle pose (x, y, yaw angle), using rear-wheel speeds and yaw rate directly as the EKF's control/prediction input (rather than IMU acceleration integration); correction uses the known positions of previously mapped, validated landmarks (tracked only if 'seen' more than once, and only within the same color class). Landmark-to-map data association uses the Joint Compatibility Branch and Bound (JCBB) algorithm, chosen over the cheaper Individual Compatibility Nearest Neighbor (ICNN) approach specifically because cone spacing can be as tight as ~30cm - within pose-estimate error tolerance for ICNN, risking mis-association. Track map is built once (assumed static/flat) during the mapping lap of Autocross-style events.",
+    "planning_approach": "A simple geometric motion planner provides a reference path (centerline through mapped/observed landmarks) to be tracked by the lateral controller; longitudinal and lateral control are decoupled (path-velocity-decomposition). Target velocity along the path is derived from a pre-computed GGS (combined lateral/longitudinal acceleration limit) map of the vehicle using quasi-steady-state lap-time-optimization-style methods, computed largely offline, ensuring the online velocity target stays within the linear-tire operating region assumed by the lateral controller.",
+    "control_approach": "Lateral control: a newly developed linear time-varying Model Predictive Controller (LTV-MPC), replacing the Stanley controller used in previous seasons, built around a dynamic bicycle model (linear tire model, small-angle-linearized around straight-line driving) discretized and solved as a dense, unconstrained-QP-reduced problem (steering-angle bound constraints dropped as rarely active) via Eigen3 Cholesky decomposition rather than a dedicated QP solver; horizon N=65 steps at 20ms sampling, with input-delay compensation via a transport-chain state augmentation. Longitudinal control: simple feedforward PI controller tracking the velocity target from the GGS-derived profile.",
+    "simulation_tooling": "No full model-based/photorealistic sensor simulator is used for perception, localization, or mapping - the team found this too costly to build accurately and instead relies on replaying recorded real-sensor data logs for debugging those modules. For motion planning and control specifically, a dedicated closed-loop simulation around an accurate vehicle-dynamics model was considered necessary and was used, with results visualized via rviz (ROS's 3D visualization tool). Extensive simulation studies were run to verify MPC stability/robustness before real-vehicle testing.",
+    "ci_cd_testing": "Development process incorporated SCRUM elements (weekly progress/resource reviews) adapted to Formula Student's time constraints. The team explicitly states that 'a proper git workflow including code style rules, reviews, and automated tests is recommended' based on past experience that 'coding errors and bad coding practices lead to delays in the deployment process' - implying this discipline was adopted as a corrective lesson rather than present from day one. No named CI platform (e.g. GitHub Actions/Jenkins) was disclosed.",
+    "data_logging": "rosbag-format recorded sensor/system logs, used primarily for offline replay-based debugging and regression testing of the perception, localization, and mapping modules (in lieu of full sensor simulation).",
+    "open_source_repos": "github.com/ka-raceing - hosts ROS-related Docker configurations and sensor driver repositories; more infrastructure/tooling-focused than a complete public reference architecture (unlike, e.g., AMZ's fsd_skeleton). Useful primarily as a driver/tooling reference rather than a full copyable stack."
+  },
+  "milestone_significance": {
+    "critical_path_items": "1) Hardware-level multi-LiDAR synchronization (the custom sync-ECU providing a common PTP-style time base) - directly enabled merging 4 sensors into one coherent point cloud and was the key driver behind the 42m perception range that the team credits with the largest single year-over-year performance jump (KIT18d to KIT19d). 2) Robust data association under tight (as low as ~30cm) cone spacing, which drove the more expensive JCBB algorithm choice over cheaper nearest-neighbor approaches, since a wrong association would diverge the EKF. 3) Keeping total system cycle time comfortably under the ~50ms control loop (perception ~13.5ms median inference, localization ~10ms, MPC well under 5ms) to avoid destabilizing high-speed autonomous control - explicitly measured and reported by the team (Fig. 8 of the KIT19d paper).",
+    "long_lead_procurement": "[uncertain] No numeric lead times (in weeks) were disclosed in accessible sources for the 4 LiDARs, steering actuator/gearbox, or compute hardware, though the steering actuator (TQ-RoboDrive motor + harmonic drive) is a sponsor-sourced, specialized component that would plausibly be long-lead.",
+    "first_static_test_date": "[uncertain] Not disclosed in accessible sources",
+    "first_dynamic_test_date": "27 April 2017 - public rollout/maiden run ('Jungfernfahrt') of the KIT17d at KIT's South Campus Audimax, following planned end-of-April 2017 sensor-validation test drives. [uncertain for subsequent-generation cars: no individually dated first-dynamic-test records found for KIT18d/KIT19d onward]",
+    "testing_hours_before_first_comp": "[uncertain] Not disclosed in accessible sources",
+    "validation_strategy": "For the MPC lateral controller specifically, the team states 'extensive simulation studies to verify stability and robustness were conducted before testing on the real vehicle.' For perception/localization/mapping, validation relied on replaying recorded real-sensor-data logs rather than synthetic simulation. Competition performance is also used as an implicit validation/benchmark, with the team directly comparing its own best lap times against rival teams (e.g., Table I of the KIT19d paper benchmarks Zurich ETH, Karlsruhe KIT, Delft TU, Augsburg UAS, and Hamburg TU head-to-head at FSG 2019)."
+  },
+  "competition_ecosystem": {
+    "rules_compliance_challenges": "[uncertain] Not detailed with specifics in accessible sources beyond general DT-rule-compliant architecture choices (redundant EBS, MCU-enforced safety checks).",
+    "tech_inspection_experience": "[uncertain] Not found in accessible sources for this research",
+    "ebs_test_experience": "[uncertain] Not found in accessible sources for this research beyond confirmation that a fully redundant pneumatic/hydraulic EBS exists and passed scrutineering across multiple seasons (implied by consistent competition entries and podium finishes)",
+    "documentation_burden": "[uncertain] Not found in accessible sources for this research"
+  },
+  "performance_metrics": {
+    "dv_event_results": "2017 FSG: 2nd overall Driverless. 2018 FSG: 2nd overall Driverless; FS East: 1st overall Driverless. 2019 FSG: won 3 of 4 dynamic disciplines - Skidpad 6.671s+0.20 penalty, Autocross w/o prior knowledge 28.186s (9% faster than 2nd place), Trackdrive 244.90s+4.00 penalty; DNF Acceleration; FS Spain: 1st overall. 2021: 1st overall Driverless at FSG, FS East, and FS Czech (swept all three). 2022: FS East 1st (956.27 pts), FS Czech 2nd (560.57 pts). 2023: FSG 2nd (304.05 pts), FS East 4th (660.71 pts). 2024: FSG 5th (354.32 pts), FS East 2nd (859.02 pts). 2025: FSG 2nd (547.47 pts), FS Czech 3rd (631.47 pts), 10 total podium finishes and 'fastest autonomous vehicle' of the season. 2026: FSG 6th (318.32 pts), FS Czech 4th (435.92 pts).",
+    "autonomous_speeds_achieved": "FSG 2019 Autocross without prior track knowledge: peak lateral acceleration close to 10 m/s^2 ('not far off the performance of a non-professional human driver' per the team's own paper). With a known map (Trackdrive), lateral acceleration reached slightly over 11 m/s^2 on the same circuit. Velocity range observed in the reported GG-plot spans roughly 6-16 m/s.",
+    "ebs_deceleration_achieved": "[uncertain] Not disclosed numerically in accessible sources",
+    "perception_range_achieved": "~42m effective detection range for the KIT19d's synchronized 4-LiDAR/3-camera setup, a 210% increase over the prior-generation car's range (implying roughly ~13.5m for KIT18d). Later-generation cars (per team reporting) cite ~40m range with a 360°-LiDAR + 3-camera configuration.",
+    "reliability_notes": "The KIT19d's FSG19 Autocross-without-prior-knowledge lap time was reported as more than 4x faster than the equivalent 2018 result despite using the same hardware setup, indicating that software/algorithm maturity - not new hardware - was the primary driver of the reliability/performance jump between 2018 and 2019. The car DNF'd the Acceleration discipline at FSG 2019 despite winning the other three dynamic events; no root cause was disclosed in accessible sources. [uncertain: root cause of the 2019 Acceleration DNF]"
+  },
+  "top_mistakes": "Explicitly stated in the KIT19d paper: (1) the team notes that building a fully accurate, model-based sensor simulation for perception/localization/mapping is 'very demanding' and a real photorealistic simulation would likely not have been worth the investment - implying earlier over-investment temptation in this direction was recognized as a trap to avoid; (2) 'coding errors and bad coding practices lead to delays in the deployment process,' a lesson stated in the context of recommending a proper git workflow (code style rules, reviews, automated tests) - implying earlier seasons suffered avoidable delays from insufficiently disciplined software engineering practice before this was adopted.",
+  "advice_for_new_teams": "Paraphrased directly from the KIT19d paper: 'race cars are developed in less than a year. Thus, strategies to evaluate concepts rapidly and efficient methods for testing and validating results are key' - use workflows adapted from SCRUM (weekly reviews) to track progress and reallocate limited team/time resources continuously; simulate only where the payoff clearly justifies it (motion planning/control, where a closed feedback loop around an accurate vehicle model is essential) and rely on real recorded-sensor-data replay elsewhere rather than over-building sensor simulation; adopt 'a proper git workflow including code style rules, reviews, and automated tests' from the outset to avoid deployment delays; make continuous incremental improvements to an existing, working stack each season - 'instead of reinventing complete modules, improvements came often in small steps... even with a small group of developers' - rather than rewriting the system from scratch every year.",
+  "team_structure_dv": "KA-RaceIng operates ~85-100 active members total across combustion, electric, and driverless sub-teams, organized 'like a small company' with each department (subteam) responsible for a specific vehicle element - Autonomous System/Driverless, Monocoque, Suspension & Vehicle Dynamics, Powertrain, Aerodynamics, and Business/Management (finance, sponsoring, business plan). For the 2019 season specifically, the KIT19d software-stack paper lists an 11-person core Autonomous System software author group (Sherif Nekkah, Josua Janus, Mario Boxheimer, Lars Ohnemus, Stefan Hirsch, Benjamin Schmidt, Yuchen Liu, David Borbély, Florian Keck, Katharina Bachmann, Lukasz Bleszynski).",
+  "recruiting_and_knowledge_transfer": "[uncertain, partially inferred] The KIT19d paper explicitly states development was 'based on the software of the previous seasons. Instead of reinventing complete modules, improvements came often in small steps. This ensured a continuous performance improvement even with a small group of developers' - implying a deliberate strategy of incremental continuity (rather than full rewrites) specifically to make year-over-year turnover manageable, though no explicit onboarding process is documented.",
+  "budget_estimate": "[uncertain] Not disclosed numerically in accessible sources",
+  "recommended_sequence": "Inferred from KIT's own build order and stated priorities: (1) retrofit an existing, proven EV chassis with an EBS, steering actuator, and a minimal sensor set to reach a legal, drivable, competition-eligible car quickly (as KIT17d reused KIT15e), rather than designing a bespoke DV chassis first; (2) build a synchronized multi-sensor perception pipeline that runs on commodity CPU hardware before reaching for expensive GPU compute, since KIT19d proved a CPU-only pipeline can hit sub-50ms cycle times; (3) implement a lightweight EKF pose tracker (pose-only, not full landmark-state SLAM) sufficient for a single mapping lap, rather than a heavier full-SLAM formulation, to conserve limited software-team bandwidth; (4) start lateral control with a simple, robust controller (e.g. Stanley) and only move to MPC once the team has the bandwidth to build and validate an accurate vehicle model and QP-solve pipeline - exactly the order KIT itself followed; (5) formalize a SCRUM-style weekly review cadence and enforce git hygiene (style rules, code review, automated tests) from day one, since the team explicitly names undisciplined workflow as a historical source of deployment delay; (6) treat every subsequent season as an incremental improvement of the existing stack, not a rewrite.",
+  "applicability_to_24_month_ramp": "KA-RaceIng's history is a strong direct analog for a team with a running EV and a ~9-person software-focused group: their 'retrofit the existing EV, get something legal and drivable fast, then iterate for several seasons' strategy (KIT17d in 2017 -> podium contender by 2018 -> near-sweep of dynamic events and an FS Spain overall win by 2019) fits comfortably inside a 24-month/2-season window, likely with room to spare given KIT achieved its strongest early result (KIT19d) in its third season. Highest-value transferable practices: (a) retrofit the existing EV rather than build a dedicated DV chassis first, exactly as KIT17d reused KIT15e; (b) deliberately choose a GPU-free, commodity-CPU perception pipeline (KIT19d's proven approach) to reduce compute-integration risk and cost for a small software team; (c) adopt KIT's own explicit, hard-won lesson to enforce git/code-review discipline and a SCRUM-like weekly cadence from the start rather than after accumulating delay; (d) sequence controller complexity deliberately - start with a simple/robust lateral controller and move to MPC only once the team has bandwidth for an accurate vehicle model, matching KIT's own Stanley-to-MPC progression; (e) prefer real recorded-sensor-data replay over building full sensor simulation for perception/localization, reserving simulation investment for motion planning/control where KIT found it genuinely necessary.",
+  "uncertain": [
+    "dv_program_start",
+    "months_concept_to_first_autonomous_run",
+    "months_concept_to_first_competition",
+    "months_to_first_scoring_run",
+    "ramp_phases",
+    "what_slipped",
+    "ebs_design",
+    "ebs_development_duration",
+    "ebs_cost_estimate",
+    "steering_actuation",
+    "brake_actuation",
+    "mass_added",
+    "chassis_impact",
+    "power_budget",
+    "shutdown_circuit_implementation",
+    "remote_stop_system",
+    "status_indicators",
+    "custom_pcbs",
+    "long_lead_procurement",
+    "first_static_test_date",
+    "first_dynamic_test_date",
+    "testing_hours_before_first_comp",
+    "rules_compliance_challenges",
+    "tech_inspection_experience",
+    "ebs_test_experience",
+    "documentation_burden",
+    "ebs_deceleration_achieved",
+    "reliability_notes",
+    "recruiting_and_knowledge_transfer",
+    "budget_estimate"
+  ]
+}
