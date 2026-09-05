@@ -1,0 +1,14 @@
+# OS / editor cruft
+.DS_Store
+~$*
+
+# Office lock files
+~$*.pptx
+~$*.docx
+~$*.xlsx
+
+# Too large for GitHub (100MB hard limit) — share separately
+Driverless_Systems_Presentation.pptx
+
+# Local tool config, not project content
+.claude/
